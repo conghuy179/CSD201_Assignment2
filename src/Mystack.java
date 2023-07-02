@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class Mystack {
+/**
+ * Contain information and behaviours of stack
+ */
+public class Mystack {
 }

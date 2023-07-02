@@ -1,5 +1,13 @@
-public class Main {
+import java.util.Scanner;
+
+/**
+ *  operate the system
+ */
+public class AS2_Main {
+    private static final Scanner sc = new Scanner(System.in);
+    private static MyList ml = new MyList();
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        OperationToProduct operation = new OperationToProduct(sc, ml);
+        operation.run();
     }
 }
