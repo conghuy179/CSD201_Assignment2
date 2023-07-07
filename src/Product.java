@@ -15,6 +15,10 @@ public class Product {
         this.price = price;
     }
 
+    public String getbcode () {
+        return bCode;
+    }
+
     @Override
     public String toString() {
         return "Product{" +

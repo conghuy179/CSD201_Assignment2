@@ -1,5 +1,5 @@
-import java.io.*;
-import java.util.Arrays;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -98,17 +98,19 @@ public class OperationToProduct {
             fileSc.nextLine();
             while (fileSc.hasNextLine()) {
                 // Luu thong tin san pham vao linked list
+                // Cat va trim cac doan String chua thong tin san pham
 
                 String data = fileSc.nextLine();
                 String[] part = data.split("\\|");
-                String id = part[0].trim();
+                String bCode = part[0].trim();
                 String title = part[1].trim();
                 int quantity = Integer.parseInt(part[2].trim());
                 double price = Double.parseDouble(part[3].trim());
-                System.out.println(id + " " + title + " " + quantity + " " + price);
-                // Want: Dua thong tin product vao tung Node cua myList
-                Product product = new Product(id, title, quantity, price);
+                // Want: Dua thong tin product vao product
+                Product product = new Product(bCode, title, quantity, price);
+                // Dua product vao Node
                 Node node = new Node(product);
+                // Dua node vao myList
                 myList.add(node);
             }
         } catch (FileNotFoundException e) {
@@ -118,6 +120,109 @@ public class OperationToProduct {
     }
 
     public void runSelectionInputAndAdd() {
+        //input san pham
+        String bCode;
+        String title;
+        int quantity = 0;
+        double price = 0;
+
+        System.out.println("Nhap thong tin san pham muon them vao: ");
+        // Nhap va kiem tra dieu kien Id
+        do {
+            System.out.println("Ma san pham: ");
+            bCode = sc.next();
+            isBCodeValid(bCode);
+            if (!isBCodeValid(bCode)) {
+                System.out.println("San pham da ton tai. Vui long thu lai.");
+            }
+        } while (!isBCodeValid(bCode));
+
+        System.out.println("Loai san pham: ");
+        title = sc.next();
+
+        // Nhap va kiem tra dieu kien quantity
+        do {
+            String quantityS = null;
+            System.out.println("So luong san pham: ");
+            try {
+                quantityS = sc.next();
+                isQuantityValid(quantityS);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
+            quantity = Integer.parseInt(quantityS);
+            if (!isQValid(quantity)) {
+                System.out.println("Nhap sai so luong. Yeu cau nhap lai.");
+            }
+        } while (!isQValid(quantity));
+
+        // Nhap va kiem tra dieu kien price
+        do {
+            String priceS = null;
+            System.out.println("Gia tien san pham: ");
+            try {
+                priceS = sc.next();
+                isPriceValid(priceS);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
+            price = Double.parseDouble(priceS);
+            if (!isPValid(price)) {
+                System.out.println("Nhap sai gia san pham. Yeu cau nhap lai.");
+            }
+        } while (!isPValid(price));
+
+        // Thoa man tat ca dieu kien => Tao san pham va dua vao cuoi danh sach
+        Product newProduct = new Product(bCode, title, quantity, price);
+        Node node = new Node(newProduct);
+        myList.add(node);
+    }
+
+    private boolean isBCodeValid(String bCode) {
+        Node result = myList.search(bCode);
+        boolean isValid = false;
+        if (!result.getInfo().getbcode().equals(bCode)) {
+            isValid = true;
+        }
+
+        return isValid;
+    }
+
+    private boolean isPriceValid(String priceS) {
+        boolean result = false;
+        if (Integer.parseInt(priceS) < 0) {
+            System.out.println("Chi nhap so tien tren 0 dong");
+        } else {
+            result = true;
+        }
+
+        return result;
+    }
+
+    private boolean isPValid(double price) {
+        if (price < 0) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isQuantityValid(String quantityS) {
+        boolean result = false;
+        if (Integer.parseInt(quantityS) < 1) {
+            System.out.println("Chi nhap so luong san pham tren 1 chiec.");
+        } else {
+            result = true;
+        }
+        return result;
+    }
+
+    private boolean isQValid(int quantity) {
+        if (quantity < 1) {
+            return false;
+        }
+        return true;
     }
 
     public void runSelectionDisplayData() {
