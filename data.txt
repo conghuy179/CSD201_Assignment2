@@ -1,4 +1,4 @@
-ID |  Title   | Quantity | price
+ID |  Title   | Quantity | Price
 --------------------------------
 P03  |  Sugar      |   12    | 25.1
 P01  |  Miliket      |   10    | 5.2
@@ -8,3 +8,4 @@ P07  |  Beer      |   11    | 12.2
 P04  |  Book      |   9    | 5.2
 3  |  3      |   3    | 3.0
 4  |  4      |   4    | 4.0
+5  |  5      |   5    | 5.0

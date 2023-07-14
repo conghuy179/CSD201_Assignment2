@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce91fa2d-0df2-4aa3-a8ec-0630d41ebb04" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AS2_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AS2_Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mystack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OperationToProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperationToProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
     </list>
@@ -51,9 +56,30 @@
       <recent name="C:\Users\Admin\Documents\CODE\Java\Project\CSD201_AS2_huypc_fx16513\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AS2_Main">
     <configuration name="AS2_Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AS2_Main" />
+      <module name="CSD201_AS2_huypc_fx16513" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MyList" />
+      <module name="CSD201_AS2_huypc_fx16513" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MyQueue" />
+      <module name="CSD201_AS2_huypc_fx16513" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Util" />
       <module name="CSD201_AS2_huypc_fx16513" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -62,6 +88,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.AS2_Main" />
+        <item itemvalue="Application.Util" />
+        <item itemvalue="Application.MyQueue" />
+        <item itemvalue="Application.MyList" />
       </list>
     </recent_temporary>
   </component>

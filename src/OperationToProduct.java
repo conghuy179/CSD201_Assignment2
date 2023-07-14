@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -22,7 +24,7 @@ public class OperationToProduct {
     private MyList myList;
 
     public OperationToProduct(Scanner sc, MyList myList) {
-        this.sc = sc;
+        this.sc = sc.useDelimiter("\n");
         this.myList = myList;
     }
 
@@ -43,7 +45,7 @@ public class OperationToProduct {
         System.out.println("Your selection: ");
     }
 
-    public void run() {
+    public void run() throws IOException {
         String selectionS;
         do {
             printMenu();
@@ -116,7 +118,7 @@ public class OperationToProduct {
         } catch (FileNotFoundException e) {
             System.out.println("Cannot find the file.");
         }
-        myList.printLL();
+        System.out.println("Doc du lieu tu file hoan tat.");
     }
 
     public void runSelectionInputAndAdd() {
@@ -133,9 +135,12 @@ public class OperationToProduct {
             bCode = sc.next();
             isBCodeValid(bCode);
             if (!isBCodeValid(bCode)) {
+                System.out.println("Ma san pham: P + so thu tu. Yeu cau nhap lai.");
+            }
+            if (isBCodeExisted(bCode)) {
                 System.out.println("San pham da ton tai. Vui long thu lai.");
             }
-        } while (!isBCodeValid(bCode));
+        } while (isBCodeExisted(bCode) && isBCodeValid(bCode));
 
         System.out.println("Loai san pham: ");
         title = sc.next();
@@ -148,7 +153,7 @@ public class OperationToProduct {
                 quantityS = sc.next();
                 isQuantityValid(quantityS);
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Yeu cau nhap lai. Li do: " + e.getMessage());
                 continue;
             }
             quantity = Integer.parseInt(quantityS);
@@ -165,7 +170,8 @@ public class OperationToProduct {
                 priceS = sc.next();
                 isPriceValid(priceS);
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                System.out.println(priceS);
+                System.out.println("Yeu cau nhap lai. Li do: " + e.getMessage());
                 continue;
             }
             price = Double.parseDouble(priceS);
@@ -180,14 +186,16 @@ public class OperationToProduct {
         myList.add(node);
     }
 
-    private boolean isBCodeValid(String bCode) {
-        Node result = myList.search(bCode);
-        boolean isValid = false;
-        if (!result.getInfo().getbcode().equals(bCode)) {
-            isValid = true;
+    public boolean isBCodeValid(String bCode) {
+        if (bCode.charAt(0) != 'P') {
+            return false;
         }
+        return true;
+    }
 
-        return isValid;
+    private boolean isBCodeExisted(String bCode) {
+        Node result = myList.search(bCode);
+        return result != null;
     }
 
     private boolean isPriceValid(String priceS) {
@@ -202,10 +210,11 @@ public class OperationToProduct {
     }
 
     private boolean isPValid(double price) {
-        if (price < 0) {
-            return false;
+        boolean result = false;
+        if (price > 0) {
+            result = true;
         }
-        return true;
+        return result;
     }
 
     private boolean isQuantityValid(String quantityS) {
@@ -219,22 +228,84 @@ public class OperationToProduct {
     }
 
     private boolean isQValid(int quantity) {
-        if (quantity < 1) {
-            return false;
+        boolean result = false;
+        if (quantity > 1) {
+            result = true;
         }
-        return true;
+        return result;
     }
 
     public void runSelectionDisplayData() {
+        System.out.println("Thong tin san pham trong danh sach: ");
+        // Duyet tung phan tu
+        for (int i = 0; i < myList.length(); i++) {
+            Node current = myList.getNode(i);
+            // Kiem tra bCode
+            String bCode = current.getInfo().getbcode();
+            if (isBCodeValid(bCode)) {
+                String info = current.getInfo().toString();
+                System.out.println("Info trong Node thu " + i + " la: " + info);
+            }
+        }
     }
 
-    public void runSelectionSaveProductList() {
+    public void runSelectionSaveProductList() throws IOException {
+        try {
+            FileWriter myfile = new FileWriter("data.txt");
+            myfile.write("ID |  Title   | Quantity | Price\n" +
+                    "--------------------------------\n");
+            for (int i = 0; i < myList.length(); i++) {
+                Node current = myList.getNode(i);
+                // Kiem tra bCode
+                String bCode = current.getInfo().getbcode();
+                if (isBCodeValid(bCode)) {
+                    myfile.write(myList.getNode(i).toString());
+                }
+            }
+            myfile.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     public void runSelectionSearchId() {
+        String bCode = null;
+        Node target = new Node();
+        do {
+            System.out.println("Nhap so ID (bCode) can tim: ");
+            bCode = sc.next();
+            if (!isBCodeExisted(bCode)) {
+                System.out.println("So BCode khong ton tai. Yeu cau nhap lai.");
+            } else {
+                target = myList.search(bCode);
+                System.out.println("San pham can tim: ");
+                System.out.println(target.getInfo().toString());
+            }
+        } while (!isBCodeExisted(bCode));
     }
-
     public void runSelectionDeleteId() {
+        String bCode = null;
+        Node target = new Node();
+        do {
+            System.out.println("Nhap so ID (bCode) can xoa: ");
+            bCode = sc.next();
+            if (!isBCodeExisted(bCode)) {
+                System.out.println("So BCode khong ton tai. Yeu cau nhap lai.");
+            } else {
+                target = myList.search(bCode);
+                int position = -1;
+                for (int i = 0; i < myList.length(); i++) {
+                    if (myList.getNode(i) == target) {
+                        position = i;
+                    }
+                }
+                System.out.println("San pham can xoa: ");
+                System.out.println(target.getInfo().toString());
+                myList.delete(position);
+            }
+        } while (!isBCodeExisted(bCode));
     }
 
     public void runSelectionSortId() {

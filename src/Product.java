@@ -21,11 +21,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "bCode='" + bCode + '\'' +
-                ", title='" + title + '\'' +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                '}';
+        return bCode + "  " + "|" + "  " +
+                title + "   " +  "|" + "   " +
+                quantity + "   " +  "|" + "   " +
+                price + "   " +  "|" + "   " +
+                '\n';
     }
 }
