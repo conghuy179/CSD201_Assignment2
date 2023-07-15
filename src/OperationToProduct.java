@@ -108,12 +108,15 @@ public class OperationToProduct {
                 String title = part[1].trim();
                 int quantity = Integer.parseInt(part[2].trim());
                 double price = Double.parseDouble(part[3].trim());
-                // Want: Dua thong tin product vao product
-                Product product = new Product(bCode, title, quantity, price);
-                // Dua product vao Node
-                Node node = new Node(product);
-                // Dua node vao myList
-                myList.add(node);
+                // Kiem tra dieu kien tung thanh phan, neu hop le tat ca thi cho vao product
+                if (isBCodeValid(bCode)) {
+                    // Want: Dua thong tin product vao product
+                    Product product = new Product(bCode, title, quantity, price);
+                    // Dua product vao Node
+                    Node node = new Node(product);
+                    // Dua node vao myList
+                    myList.add(node);
+                }
             }
         } catch (FileNotFoundException e) {
             System.out.println("Cannot find the file.");
@@ -244,7 +247,7 @@ public class OperationToProduct {
             String bCode = current.getInfo().getbcode();
             if (isBCodeValid(bCode)) {
                 String info = current.getInfo().toString();
-                System.out.println("Info trong Node thu " + i + " la: " + info);
+                System.out.println("Info trong Node thu " + (i + 1) + " la: " + info);
             }
         }
     }
@@ -285,27 +288,34 @@ public class OperationToProduct {
             }
         } while (!isBCodeExisted(bCode));
     }
+
     public void runSelectionDeleteId() {
         String bCode = null;
         Node target = new Node();
+        // Tim so bCode can xoa
         do {
             System.out.println("Nhap so ID (bCode) can xoa: ");
             bCode = sc.next();
             if (!isBCodeExisted(bCode)) {
                 System.out.println("So BCode khong ton tai. Yeu cau nhap lai.");
-            } else {
-                target = myList.search(bCode);
-                int position = -1;
-                for (int i = 0; i < myList.length(); i++) {
-                    if (myList.getNode(i) == target) {
-                        position = i;
-                    }
-                }
-                System.out.println("San pham can xoa: ");
-                System.out.println(target.getInfo().toString());
-                myList.delete(position);
             }
         } while (!isBCodeExisted(bCode));
+
+        // Tim position cua Product trong linked list de xoa
+        target = myList.search(bCode);
+        int position = -1;
+        for (int i = 0; i < myList.length(); i++) {
+            if (myList.getNode(i) == target) {
+                position = i;
+            }
+        }
+        System.out.println("San pham can xoa: ");
+        System.out.println(target.getInfo().toString());
+        for (int i = 0; i < myList.length(); i++) {
+            System.out.println(myList.getNode(i));
+        }
+        myList.delete(position);
+        System.out.println("Xoa thanh cong!");
     }
 
     public void runSelectionSortId() {

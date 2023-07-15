@@ -142,19 +142,35 @@ public class MyList {
         }
     }
 
+    public Node removeFirstNode() {
+        if (head == null)
+            return null;
+
+        // Move the head pointer to the next node
+        Node temp = head;
+        head = head.getNext();
+
+        return head;
+    }
+
     public void delete(int position) {
         if (position < 0 || position > length()) {
             System.out.println("Nam ngoai day.");
         }
         int x = 1;
         Node current = head;
-        while (current.getNext() != null && x != position - 1) {
-            x++;
-            current = current.getNext();
+        if (position == 0) {
+            System.out.println("Node da duoc xoa vi o vi tri dau tien");
+            removeFirstNode();
+        } else {
+            while (current.getNext() != null && x != position - 1) {
+                x++;
+                current = current.getNext();
+            }
+            Node a = current.getNext();
+            current.setNext(a.getNext());
+            a.setNext(null);
         }
-        Node a = current.getNext();
-        current.setNext(a.getNext());
-        a.setNext(null);
     }
 
 //    public static void main(String[] args) {
