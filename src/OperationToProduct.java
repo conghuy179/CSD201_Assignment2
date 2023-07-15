@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -316,13 +318,17 @@ public class OperationToProduct {
     }
 
     public void runSelectionSortId() {
+        // Cho cac Id vao String
+        
+
+        // Trinh bay
         System.out.println("Day chua duoc sap xep: ");
         for (int i = 0; i < myList.length(); i++) {
+
             System.out.println(myList.getNode(i).toString());
         }
         System.out.println("-------------------------");
         System.out.println("Day duoc sap xep theo Id: ");
-        myList.sort
     }
 
     public void runSelectionConvertBinary() {
