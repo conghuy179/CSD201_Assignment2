@@ -311,14 +311,18 @@ public class OperationToProduct {
         }
         System.out.println("San pham can xoa: ");
         System.out.println(target.getInfo().toString());
-        for (int i = 0; i < myList.length(); i++) {
-            System.out.println(myList.getNode(i));
-        }
         myList.delete(position);
         System.out.println("Xoa thanh cong!");
     }
 
     public void runSelectionSortId() {
+        System.out.println("Day chua duoc sap xep: ");
+        for (int i = 0; i < myList.length(); i++) {
+            System.out.println(myList.getNode(i).toString());
+        }
+        System.out.println("-------------------------");
+        System.out.println("Day duoc sap xep theo Id: ");
+        myList.sort
     }
 
     public void runSelectionConvertBinary() {

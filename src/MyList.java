@@ -89,7 +89,7 @@ public class MyList {
             System.out.println("Nam ngoai day.");
             return null;
         }
-        int x = 1;
+        int x = 0;
         Node current = head;
         while (current.getNext() != null && x != position) {
             x++;
@@ -157,10 +157,9 @@ public class MyList {
         if (position < 0 || position > length()) {
             System.out.println("Nam ngoai day.");
         }
-        int x = 1;
+        int x = 0;
         Node current = head;
         if (position == 0) {
-            System.out.println("Node da duoc xoa vi o vi tri dau tien");
             removeFirstNode();
         } else {
             while (current.getNext() != null && x != position - 1) {
