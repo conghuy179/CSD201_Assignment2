@@ -16,7 +16,8 @@ public class OperationToProduct {
     final static int SELECTION_DELETE_ID = 6;
     final static int SELECTION_SORT_ID = 7;
     final static int SELECTION_CONVERT_BINARY = 8;
-    final static int SELECTION_LOAD_QUEUE = 9;
+    final static int SELECTION_LOAD_QUEUE = 10;
+    final static int SELECTION_LOAD_STACK = 9;
     final static int SELECTION_EXIT = 0;
 
     private int selection;
@@ -83,11 +84,16 @@ public class OperationToProduct {
                 case SELECTION_CONVERT_BINARY:
                     runSelectionConvertBinary();
                     break;
+                case SELECTION_LOAD_STACK:
+                    runSelectionLoadStack();
                 case SELECTION_LOAD_QUEUE:
                     runSelectionLoadQueue();
                     break;
             }
         } while (selection != SELECTION_EXIT);
+    }
+
+    public void runSelectionLoadStack() {
     }
 
     public void runSelectionLoadData() {
@@ -277,7 +283,7 @@ public class OperationToProduct {
             System.out.println("Nhap so ID (bCode) can tim: ");
             bCode = sc.next();
             if (!isBCodeExisted(bCode)) {
-                System.out.println("So BCode khong ton tai. Yeu cau nhap lai.");
+                System.out.println(-1);
             } else {
                 target = myList.search(bCode);
                 System.out.println("San pham can tim: ");
@@ -285,6 +291,7 @@ public class OperationToProduct {
             }
         } while (!isBCodeExisted(bCode));
     }
+
     public void runSelectionDeleteId() {
         String bCode = null;
         Node target = new Node();
@@ -309,9 +316,32 @@ public class OperationToProduct {
     }
 
     public void runSelectionSortId() {
+        System.out.println("Xep vat pham theo ID.");
+        MyList sortedMl = new MyList();
+
+        // Loc bCode lay so Product
+        // So sanh so product theo thu tu be den lon
+        // Insertion sort
+
+//        myList
+//        myList.getNode()
+//        // insertion sort myList
     }
 
     public void runSelectionConvertBinary() {
+        int numberProduct = 0;
+
+        for (int i = 0; i < myList.length(); i++) {
+            Node current = myList.getNode(i);
+            // Kiem tra bCode
+            String bCode = current.getInfo().getbcode();
+            if (isBCodeValid(bCode)) {
+                numberProduct++;
+            }
+        }
+        System.out.println("So luong san pham la: " + numberProduct);
+        System.out.println("So luong san pham theo he dem nhi phan la: " + Util.stringConvertVersion2(numberProduct));
+        System.out.println("---------------------------");
     }
 
     public void runSelectionLoadQueue() {

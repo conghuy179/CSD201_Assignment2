@@ -54,11 +54,13 @@ public class MyList {
         return tail;
     }
 
+
     public Node insert(int position, Node item) {
         if (position < 0 || position > length()) {
             System.out.println("Nam ngoai day.");
             return null;
         }
+
         Node bodyPart = item;
         int x = 1;
         Node current = head;
@@ -157,25 +159,72 @@ public class MyList {
         a.setNext(null);
     }
 
-//    public static void main(String[] args) {
-//        MyList ml = new MyList();
-//        Product a = new Product("a", "banhgio", 2, 10000);
-//        Product b = new Product("b", "garan", 200, 30000);
-//        Product c = new Product("c", "Pizza", 2, 100000);
-//        Node nA = new Node(a);
-//        Node nB = new Node(b);
-//        Node nC = new Node(c);
-//        ml.add(nA);
-//        ml.add(nB);
-//        ml.add(nC);
+    public void swap(int first, int second) {
+        Node x = getNode(first);
+        Node y = getNode(second);
+
+        Node temp = y.getNext();
+        y.setNext(x);
+        x.setNext(temp);
+    }
+
+    public void insertionSort(MyList myList) {
+        MyList sortedMl = new MyList();
+
+
+        Node current = myList.head;
+        String bCodeFirst = null;
+        String bCodeSecond = null;
+        for (int i = 0; i < myList.length(); i++) {
+            for (int j = i; j > 0 && Integer.parseInt(getNode(j).getInfo().getbcode().substring(1)) < Integer.parseInt(getNode(j - 1).getInfo().getbcode().substring(1)); j--) {
+                System.out.println(Integer.parseInt(getNode(j).getInfo().getbcode().substring(1)));
+                System.out.println(Integer.parseInt(getNode(j - 1).getInfo().getbcode().substring(1)));
+                swap(j, j - 1);
+                System.out.println(Integer.parseInt(getNode(j).getInfo().getbcode().substring(1)));
+                System.out.println(Integer.parseInt(getNode(j - 1).getInfo().getbcode().substring(1)));
+            }
+        }
+    }
+
+
+//        if (current.getInfo().getbcode().equals(current.getNext().getInfo()) ) {
+//            swap(a, 0, 1);
+//        }
 //
-//        ml.printLL();
-//        Node pop = ml.takeFirst();
-//        System.out.printf("\nPop ra: %s\n", pop);
-//        ml.printLL();
-//
-//        Node dequeue = ml.takeLast();
-//        System.out.printf("\nDequeue: %s\n", dequeue);
-//        ml.printLL();
-//    }
+//        for (int i = 0; i < n; i++) {
+//            for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
+//                swap(arr, j, j - 1);
+//            }
+//        }
+//        for (int i = 2; i < a.length; i++) {
+//            for (int j = i; j > 0; j--) {
+//                if (a[j] < a[j - 1]) {
+//                    swap(a, j, j - 1);
+//                }
+//            }
+//        }
+
+    public static void main(String[] args) {
+        MyList ml = new MyList();
+        Product a = new Product("P01", "banhgio", 2, 10000);
+        Product b = new Product("P02", "garan", 200, 30000);
+        Product c = new Product("P03", "Pizza", 2, 100000);
+        Product d = new Product("P04", "BanhBo", 3, 120000);
+        Product e = new Product("P05", "Friec", 4, 130000);
+        Node nB = new Node(b);
+        Node nD = new Node(d);
+        Node nA = new Node(a);
+        Node nC = new Node(c);
+        Node nE = new Node(e);
+        ml.add(nB);
+        ml.add(nD);
+        ml.add(nA);
+        ml.add(nC);
+        ml.add(nE);
+        ml.printLL();
+        System.out.println("Swap");
+        ml.swap(0,1);
+//        ml.insertionSort(ml);
+        ml.printLL();
+    }
 }
