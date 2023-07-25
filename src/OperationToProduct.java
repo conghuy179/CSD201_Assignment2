@@ -18,7 +18,9 @@ public class OperationToProduct {
     final static int SELECTION_DELETE_ID = 6;
     final static int SELECTION_SORT_ID = 7;
     final static int SELECTION_CONVERT_BINARY = 8;
-    final static int SELECTION_LOAD_QUEUE = 9;
+
+    final static int SELECTION_LOAD_STACK = 9;
+    final static int SELECTION_LOAD_QUEUE = 10;
     final static int SELECTION_EXIT = 0;
 
     private int selection;
@@ -85,11 +87,17 @@ public class OperationToProduct {
                 case SELECTION_CONVERT_BINARY:
                     runSelectionConvertBinary();
                     break;
+                case SELECTION_LOAD_STACK:
+                    runSelectionLoadStack();
+                    break;
                 case SELECTION_LOAD_QUEUE:
                     runSelectionLoadQueue();
                     break;
             }
         } while (selection != SELECTION_EXIT);
+    }
+
+    public void runSelectionLoadStack() {
     }
 
     public void runSelectionLoadData() {
@@ -319,7 +327,7 @@ public class OperationToProduct {
 
     public void runSelectionSortId() {
         // Cho cac Id vao String
-        
+
 
         // Trinh bay
         System.out.println("Day chua duoc sap xep: ");
@@ -342,7 +350,7 @@ public class OperationToProduct {
         if (selectionS.length() > 1) {
             throw new IllegalArgumentException("Chi nhap 1 so tu 0 den 9.");
         } else if (selectionS.charAt(0) < '0' || selectionS.charAt(0) > '9') {
-            throw new IllegalArgumentException("CHi nhap 1 so trong khoang 0 den 9.");
+            throw new IllegalArgumentException("Chi nhap 1 so trong khoang 0 den 9.");
         } else {
             return true;
         }
