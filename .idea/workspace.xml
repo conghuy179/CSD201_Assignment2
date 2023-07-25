@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="ce91fa2d-0df2-4aa3-a8ec-0630d41ebb04" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OperationToProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperationToProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.java" afterDir="false" />
+    </list>
+=======
     <list default="true" id="ce91fa2d-0df2-4aa3-a8ec-0630d41ebb04" name="Changes" comment="" />
+>>>>>>> 87da09e78cd251f1448bd45b4baf55ac462a5aab
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,9 +90,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.AS2_Main" />
+        <item itemvalue="Application.MyList" />
         <item itemvalue="Application.Util" />
         <item itemvalue="Application.MyQueue" />
-        <item itemvalue="Application.MyList" />
       </list>
     </recent_temporary>
   </component>
