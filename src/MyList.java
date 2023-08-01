@@ -184,41 +184,9 @@ public class MyList {
         x.setNext(temp);
     }
 
-    public void insertionSort(MyList myList) {
-        MyList sortedMl = new MyList();
+    public void insertionSort() {
 
-
-        Node current = myList.head;
-        String bCodeFirst = null;
-        String bCodeSecond = null;
-        for (int i = 0; i < myList.length(); i++) {
-            for (int j = i; j > 0 && Integer.parseInt(getNode(j).getInfo().getbcode().substring(1)) < Integer.parseInt(getNode(j - 1).getInfo().getbcode().substring(1)); j--) {
-                System.out.println(Integer.parseInt(getNode(j).getInfo().getbcode().substring(1)));
-                System.out.println(Integer.parseInt(getNode(j - 1).getInfo().getbcode().substring(1)));
-                swap(j, j - 1);
-                System.out.println(Integer.parseInt(getNode(j).getInfo().getbcode().substring(1)));
-                System.out.println(Integer.parseInt(getNode(j - 1).getInfo().getbcode().substring(1)));
-            }
-        }
     }
-
-
-//        if (current.getInfo().getbcode().equals(current.getNext().getInfo()) ) {
-//            swap(a, 0, 1);
-//        }
-//
-//        for (int i = 0; i < n; i++) {
-//            for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
-//                swap(arr, j, j - 1);
-//            }
-//        }
-//        for (int i = 2; i < a.length; i++) {
-//            for (int j = i; j > 0; j--) {
-//                if (a[j] < a[j - 1]) {
-//                    swap(a, j, j - 1);
-//                }
-//            }
-//        }
 
     public static void main(String[] args) {
         MyList ml = new MyList();

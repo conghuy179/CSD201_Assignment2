@@ -16,8 +16,8 @@ public class OperationToProduct {
     final static int SELECTION_DELETE_ID = 6;
     final static int SELECTION_SORT_ID = 7;
     final static int SELECTION_CONVERT_BINARY = 8;
-    final static int SELECTION_LOAD_QUEUE = 10;
     final static int SELECTION_LOAD_STACK = 9;
+    final static int SELECTION_LOAD_QUEUE = 10;
     final static int SELECTION_EXIT = 0;
 
     private int selection;
@@ -93,8 +93,6 @@ public class OperationToProduct {
         } while (selection != SELECTION_EXIT);
     }
 
-    public void runSelectionLoadStack() {
-    }
 
     public void runSelectionLoadData() {
         try {
@@ -326,11 +324,36 @@ public class OperationToProduct {
 
     public void runSelectionSortId() {
         System.out.println("Xep vat pham theo ID.");
-        MyList sortedMl = new MyList();
-
-        // Loc bCode lay so Product
-        // So sanh so product theo thu tu be den lon
-        // Insertion sort
+        MyList sortedList = new MyList();
+        String[] bcodeArr = new String[myList.length()];
+        // Loc bCode dua vao Array String va sort
+        for (int i = 0; i < myList.length(); i++) {
+            bcodeArr[i] = myList.getNode(i).getInfo().getbcode();
+        }
+        //swap
+        if (Integer.parseInt(bcodeArr[0].substring(1, 3)) > Integer.parseInt(bcodeArr[1].substring(1, 3))) {
+            String tem = bcodeArr[0];
+            bcodeArr[0] = bcodeArr[1];
+            bcodeArr[1] = tem;
+        }
+        //insertion sort
+        for (int i = 2; i < bcodeArr.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (Integer.parseInt(bcodeArr[j].substring(1, 3)) < Integer.parseInt(bcodeArr[j - 1].substring(1, 3))) {
+                    String tem = bcodeArr[j];
+                    bcodeArr[j] = bcodeArr[j - 1];
+                    bcodeArr[j - 1] = tem;
+                }
+            }
+        }
+        for (int i = 0; i < bcodeArr.length; i++) {
+            System.out.println(bcodeArr[i]);
+        }
+        // Dua thong tin String vao sortedList
+        for (int i = 0; i < myList.length(); i++) {
+            Node result = myList.search(bcodeArr[i]);
+            result.getInfo().toString();
+        }
 
 //        myList
 //        myList.getNode()
@@ -351,6 +374,10 @@ public class OperationToProduct {
         System.out.println("So luong san pham la: " + numberProduct);
         System.out.println("So luong san pham theo he dem nhi phan la: " + Util.stringConvertVersion2(numberProduct));
         System.out.println("---------------------------");
+    }
+
+
+    public void runSelectionLoadStack() {
     }
 
     public void runSelectionLoadQueue() {
