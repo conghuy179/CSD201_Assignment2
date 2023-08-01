@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -16,6 +18,10 @@ public class OperationToProduct {
     final static int SELECTION_DELETE_ID = 6;
     final static int SELECTION_SORT_ID = 7;
     final static int SELECTION_CONVERT_BINARY = 8;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ab37f40c9e7f642069612ea10d19d9963df2ae9d
     final static int SELECTION_LOAD_STACK = 9;
     final static int SELECTION_LOAD_QUEUE = 10;
     final static int SELECTION_EXIT = 0;
@@ -86,6 +92,7 @@ public class OperationToProduct {
                     break;
                 case SELECTION_LOAD_STACK:
                     runSelectionLoadStack();
+                    break;
                 case SELECTION_LOAD_QUEUE:
                     runSelectionLoadQueue();
                     break;
@@ -284,7 +291,7 @@ public class OperationToProduct {
             System.out.println("Nhap so ID (bCode) can tim: ");
             bCode = sc.next();
             if (!isBCodeExisted(bCode)) {
-                System.out.println(-1);
+                System.out.println("So BCode khong ton tai. Yeu cau nhap lai.");
             } else {
                 target = myList.search(bCode);
                 System.out.println("San pham can tim: ");
@@ -315,14 +322,12 @@ public class OperationToProduct {
         }
         System.out.println("San pham can xoa: ");
         System.out.println(target.getInfo().toString());
-        for (int i = 0; i < myList.length(); i++) {
-            System.out.println(myList.getNode(i));
-        }
         myList.delete(position);
         System.out.println("Xoa thanh cong!");
     }
 
     public void runSelectionSortId() {
+<<<<<<< HEAD
         System.out.println("Xep vat pham theo ID.");
         MyList sortedList = new MyList();
         String[] bcodeArr = new String[myList.length()];
@@ -354,26 +359,10 @@ public class OperationToProduct {
             Node result = myList.search(bcodeArr[i]);
             result.getInfo().toString();
         }
-
-//        myList
-//        myList.getNode()
-//        // insertion sort myList
+        // TODO: Fix ham for o tren
     }
 
     public void runSelectionConvertBinary() {
-        int numberProduct = 0;
-
-        for (int i = 0; i < myList.length(); i++) {
-            Node current = myList.getNode(i);
-            // Kiem tra bCode
-            String bCode = current.getInfo().getbcode();
-            if (isBCodeValid(bCode)) {
-                numberProduct++;
-            }
-        }
-        System.out.println("So luong san pham la: " + numberProduct);
-        System.out.println("So luong san pham theo he dem nhi phan la: " + Util.stringConvertVersion2(numberProduct));
-        System.out.println("---------------------------");
     }
 
 
@@ -388,7 +377,7 @@ public class OperationToProduct {
         if (selectionS.length() > 1) {
             throw new IllegalArgumentException("Chi nhap 1 so tu 0 den 9.");
         } else if (selectionS.charAt(0) < '0' || selectionS.charAt(0) > '9') {
-            throw new IllegalArgumentException("CHi nhap 1 so trong khoang 0 den 9.");
+            throw new IllegalArgumentException("Chi nhap 1 so trong khoang 0 den 9.");
         } else {
             return true;
         }
