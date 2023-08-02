@@ -18,10 +18,6 @@ public class OperationToProduct {
     final static int SELECTION_DELETE_ID = 6;
     final static int SELECTION_SORT_ID = 7;
     final static int SELECTION_CONVERT_BINARY = 8;
-<<<<<<< HEAD
-=======
-
->>>>>>> ab37f40c9e7f642069612ea10d19d9963df2ae9d
     final static int SELECTION_LOAD_STACK = 9;
     final static int SELECTION_LOAD_QUEUE = 10;
     final static int SELECTION_EXIT = 0;
@@ -327,9 +323,7 @@ public class OperationToProduct {
     }
 
     public void runSelectionSortId() {
-<<<<<<< HEAD
         System.out.println("Xep vat pham theo ID.");
-        MyList sortedList = new MyList();
         String[] bcodeArr = new String[myList.length()];
         // Loc bCode dua vao Array String va sort
         for (int i = 0; i < myList.length(); i++) {
@@ -351,15 +345,19 @@ public class OperationToProduct {
                 }
             }
         }
+        System.out.println("Mylist: ");
+        myList.printLL();
+        System.out.println("Bcode Arr: ");
         for (int i = 0; i < bcodeArr.length; i++) {
             System.out.println(bcodeArr[i]);
         }
         // Dua thong tin String vao sortedList
-        for (int i = 0; i < myList.length(); i++) {
+        for (int i = 0; i < bcodeArr.length; i++) {
             Node result = myList.search(bcodeArr[i]);
-            result.getInfo().toString();
+            myList.append(result);
+            myList.removeFirstNode();
         }
-        // TODO: Fix ham for o tren
+        myList.printLL();
     }
 
     public void runSelectionConvertBinary() {

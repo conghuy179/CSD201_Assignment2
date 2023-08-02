@@ -10,6 +10,5 @@ public class AS2_Main {
     public static void main(String[] args) throws IOException {
         OperationToProduct operation = new OperationToProduct(sc, ml);
         operation.run();
-
     }
 }
