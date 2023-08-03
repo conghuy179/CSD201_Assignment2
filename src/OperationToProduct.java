@@ -359,9 +359,11 @@ public class OperationToProduct {
         }
         System.out.println("Sorted list hoan chinh: ");
         sortedList.printLL();
+        myList = sortedList;
     }
 
     public void runSelectionConvertBinary() {
+        System.out.println("So luong san pham trong list theo he dem de quy: " + Util.stringConvertVersion2(myList.length()));
     }
 
 
