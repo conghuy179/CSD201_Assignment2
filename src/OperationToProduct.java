@@ -2,8 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -25,10 +23,14 @@ public class OperationToProduct {
     private int selection;
     private Scanner sc;
     private MyList myList;
+    private MyStack myStack;
+    private MyQueue myQueue;
 
-    public OperationToProduct(Scanner sc, MyList myList) {
+    public OperationToProduct(Scanner sc, MyList myList, MyStack myStack, MyQueue myQueue) {
         this.sc = sc.useDelimiter("\n");
         this.myList = myList;
+        this.myStack = myStack;
+        this.myQueue = myQueue;
     }
 
     public void printMenu() {
@@ -368,6 +370,41 @@ public class OperationToProduct {
 
 
     public void runSelectionLoadStack() {
+        System.out.println("Doc du lieu tu file data va luu vao Stack: ");
+        try {
+            // Doc file
+            File file = new File("data.txt");
+
+            Scanner fileSc = new Scanner(file);
+            fileSc.nextLine();
+            fileSc.nextLine();
+            while (fileSc.hasNextLine()) {
+                // Luu thong tin san pham vao Stack list
+                // Cat va trim cac doan String chua thong tin san pham
+
+                String data = fileSc.nextLine();
+                String[] part = data.split("\\|");
+                String bCode = part[0].trim();
+                String title = part[1].trim();
+                int quantity = Integer.parseInt(part[2].trim());
+                double price = Double.parseDouble(part[3].trim());
+                // Kiem tra dieu kien tung thanh phan, neu hop le tat ca thi cho vao product
+                if (isBCodeValid(bCode)) {
+                    // Want: Dua thong tin product vao product
+                    Product product = new Product(bCode, title, quantity, price);
+                    // Dua product vao Node
+                    Node node = new Node(product);
+                    // Dua node vao stacked List
+                    myStack.push(node);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Cannot find the file.");
+        }
+        System.out.println("Doc du lieu tu file hoan tat.");
+        System.out.println("Thong tin trong stack: ");
+        myStack.printLL();
+
     }
 
     public void runSelectionLoadQueue() {

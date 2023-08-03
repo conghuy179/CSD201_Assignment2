@@ -163,8 +163,6 @@ public class MyList {
     }
 
     public void removeFirstNode() {
-
-
         // Move the head pointer to the next node
         if (head != null) {
             Node tem = head;
