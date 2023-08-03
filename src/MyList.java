@@ -104,6 +104,21 @@ public class MyList {
         return current;
     }
 
+    public void deleteNode(Node a) {
+       Node current = head;
+       if (head == a) {
+           removeFirstNode();
+       } else {
+           while (current.getNext() != null && current.getNext() != a) {
+               current = current.getNext();
+           }
+           if (current.getNext() == a) {
+               current.setNext(a.getNext());
+               a.setNext(null);
+           }
+       }
+    }
+
     public void printLL() {
         Node current = head;
         while (current != null) {
@@ -147,15 +162,15 @@ public class MyList {
         }
     }
 
-    public Node removeFirstNode() {
-        if (head == null)
-            return null;
+    public void removeFirstNode() {
+
 
         // Move the head pointer to the next node
-        Node temp = head;
-        head = head.getNext();
-
-        return head;
+        if (head != null) {
+            Node tem = head;
+            head = head.getNext();
+            tem.setNext(null);
+        }
     }
 
     public void delete(int position) {

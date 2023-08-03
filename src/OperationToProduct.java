@@ -323,7 +323,7 @@ public class OperationToProduct {
     }
 
     public void runSelectionSortId() {
-       // Tao Array
+        // Tao Array
         System.out.println("Xep vat pham theo ID.");
         String[] bcodeArr = new String[myList.length()];
         // Loc bCode dua vao Array String va sort
@@ -346,29 +346,19 @@ public class OperationToProduct {
                 }
             }
         }
-        System.out.println("Mylist: ");
-        myList.printLL();
-        Node result = myList.search(bcodeArr[0]);
-        System.out.println("Test add result so 0 vao MyList: ");
-        myList.add(result);
-        myList.printLL();
+        //Tao sorted List moi
+        MyList sortedList = new MyList();
 
-        System.out.println("Test append in MyList: ");
-     // Dua thong tin String vao sortedList
-        for (int i = 0; i < 3; i++) {
+        // Dua thong tin String vao sortedList
+        for (int i = 0; i < bcodeArr.length; i++) {
             Node result2 = myList.search(bcodeArr[i]);
-            System.out.println("Add result lan: " + (i + 1));
-            myList.add(result2);
-            myList.printLL();
-            System.out.println("Loai Node dau tien trong Mylist");
-            myList.removeFirstNode();
-            myList.printLL();
+            // xoa result2 khoi myList de result2 thanh Node rieng biet
+            myList.deleteNode(result2);
+            // Add Node result2 vao Sorted List
+            sortedList.add(result2);
         }
-//        myList.printLL();
-
-//        // Cach 2: Sort truc tiep
-//        System.out.println("Xep vat pham theo ID: ");
-
+        System.out.println("Sorted list hoan chinh: ");
+        sortedList.printLL();
     }
 
     public void runSelectionConvertBinary() {
