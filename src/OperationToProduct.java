@@ -348,18 +348,22 @@ public class OperationToProduct {
         }
         System.out.println("Mylist: ");
         myList.printLL();
-        System.out.println("Test append in MyList: ");
         Node result = myList.search(bcodeArr[0]);
+        System.out.println("Test add result so 0 vao MyList: ");
         myList.add(result);
         myList.printLL();
-//        System.out.println("Test removeFirstNode in MyList: ");
-//        myList.removeFirstNode();
-        // Dua thong tin String vao sortedList
-//        for (int i = 0; i < bcodeArr.length; i++) {
-//            Node result = myList.search(bcodeArr[i]);
-//            myList.append(result);
-//            myList.removeFirstNode();
-//        }
+
+        System.out.println("Test append in MyList: ");
+     // Dua thong tin String vao sortedList
+        for (int i = 0; i < 3; i++) {
+            Node result2 = myList.search(bcodeArr[i]);
+            System.out.println("Add result lan: " + (i + 1));
+            myList.add(result2);
+            myList.printLL();
+            System.out.println("Loai Node dau tien trong Mylist");
+            myList.removeFirstNode();
+            myList.printLL();
+        }
 //        myList.printLL();
 
 //        // Cach 2: Sort truc tiep

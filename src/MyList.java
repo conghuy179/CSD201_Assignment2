@@ -20,6 +20,9 @@ public class MyList {
         } else {
             tail.setNext(a);
             tail = a;
+            if (a != null) {
+                a.setNext(null);
+            }
         }
     }
 
@@ -220,7 +223,7 @@ public class MyList {
         ml.add(nE);
         ml.printLL();
         System.out.println("Swap");
-        ml.swap(0,1);
+        ml.swap(0, 1);
 //        ml.insertionSort(ml);
         ml.printLL();
     }
