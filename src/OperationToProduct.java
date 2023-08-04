@@ -98,6 +98,12 @@ public class OperationToProduct {
         } while (selection != SELECTION_EXIT);
     }
 
+    public boolean isSelectionValid(String selectionS) {
+        if (selectionS.length() > 2) {
+            throw new IllegalArgumentException("Chi nhap 1 so tu 0 den 10.");
+        }
+        return true;
+    }
 
     public void runSelectionLoadData() {
         try {
@@ -408,16 +414,39 @@ public class OperationToProduct {
     }
 
     public void runSelectionLoadQueue() {
-    }
+        System.out.println("Doc du lieu tu file data va luu vao Queue: ");
+        try {
+            // Doc file
+            File file = new File("data.txt");
 
+            Scanner fileSc = new Scanner(file);
+            fileSc.nextLine();
+            fileSc.nextLine();
+            while (fileSc.hasNextLine()) {
+                // Luu thong tin san pham vao Stack list
+                // Cat va trim cac doan String chua thong tin san pham
 
-    public boolean isSelectionValid(String selectionS) {
-        if (selectionS.length() > 1) {
-            throw new IllegalArgumentException("Chi nhap 1 so tu 0 den 9.");
-        } else if (selectionS.charAt(0) < '0' || selectionS.charAt(0) > '9') {
-            throw new IllegalArgumentException("Chi nhap 1 so trong khoang 0 den 9.");
-        } else {
-            return true;
+                String data = fileSc.nextLine();
+                String[] part = data.split("\\|");
+                String bCode = part[0].trim();
+                String title = part[1].trim();
+                int quantity = Integer.parseInt(part[2].trim());
+                double price = Double.parseDouble(part[3].trim());
+                // Kiem tra dieu kien tung thanh phan, neu hop le tat ca thi cho vao product
+                if (isBCodeValid(bCode)) {
+                    // Want: Dua thong tin product vao product
+                    Product product = new Product(bCode, title, quantity, price);
+                    // Dua product vao Node
+                    Node node = new Node(product);
+                    // Dua node vao stacked List
+                    myQueue.enqueue(node);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Cannot find the file.");
         }
+        System.out.println("Doc du lieu tu file hoan tat.");
+        System.out.println("Thong tin trong Queue: ");
+        myQueue.printLL();
     }
 }

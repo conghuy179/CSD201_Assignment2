@@ -199,24 +199,6 @@ public class MyList {
         x.setNext(temp);
     }
 
-//    public void insertionSort() {
-//        if (head.getInfo().) {
-//            String tem = bcodeArr[0];
-//            bcodeArr[0] = bcodeArr[1];
-//            bcodeArr[1] = tem;
-//        }
-//        //insertion sort
-//        for (int i = 2; i < bcodeArr.length; i++) {
-//            for (int j = i; j > 0; j--) {
-//                if (Integer.parseInt(bcodeArr[j].substring(1, 3)) < Integer.parseInt(bcodeArr[j - 1].substring(1, 3))) {
-//                    String tem = bcodeArr[j];
-//                    bcodeArr[j] = bcodeArr[j - 1];
-//                    bcodeArr[j - 1] = tem;
-//                }
-//            }
-//        }
-//    }
-
     public static void main(String[] args) {
         MyList ml = new MyList();
         Product a = new Product("P01", "banhgio", 2, 10000);

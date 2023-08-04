@@ -2,22 +2,30 @@
  * Contain information and behaviours of queue
  */
 public class MyQueue {
-    private MyList linkedList;
+    private MyList queueLink;
 
     public MyQueue() {
-        linkedList = new MyList();
+        queueLink = new MyList();
     }
 
     public void enqueue(Node node) {
-        linkedList.append(node);
+        queueLink.append(node);
     }
 
     public Node dequeue() {
-        return linkedList.takeLast();
+        return queueLink.takeLast();
     }
 
     public void print() {
-        linkedList.printLL();
+        queueLink.printLL();
+    }
+
+    public void printLL() {
+        Node current = queueLink.getNode(0);
+        while (current != null) {
+            System.out.print(current.getInfo() + " " + "\n");
+            current = current.getNext();
+        }
     }
 //    public static void main(String[] args) {
 //        MyQueue mq = new MyQueue();
