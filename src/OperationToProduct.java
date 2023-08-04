@@ -30,7 +30,7 @@ public class OperationToProduct {
      * Constructor of Operation to Product
      * @param sc: Scanner
      * @param myList: MyList
-     * @param myStack
+     * @param myStack:
      * @param myQueue
      */
     public OperationToProduct(Scanner sc, MyList myList, MyStack myStack, MyQueue myQueue) {
@@ -40,6 +40,9 @@ public class OperationToProduct {
         this.myQueue = myQueue;
     }
 
+    /**
+     * Menu hien thi ban dau
+     */
     public void printMenu() {
         System.out.println("Choose one of this options:");
         System.out.println("Product list:");
@@ -57,6 +60,10 @@ public class OperationToProduct {
         System.out.println("Your selection: ");
     }
 
+    /**
+     * Ham chay chuong trinh
+     * @throws IOException
+     */
     public void run() throws IOException {
         String selectionS;
         do {
@@ -68,7 +75,6 @@ public class OperationToProduct {
                 System.out.println(e.getMessage());
                 continue;
             }
-
             selection = Integer.parseInt(selectionS);
             switch (selection) {
                 case SELECTION_LOAD_DATA:
@@ -105,6 +111,11 @@ public class OperationToProduct {
         } while (selection != SELECTION_EXIT);
     }
 
+    /**
+     * Ham kiem tra lua chon
+     * @param selectionS Lua chon cua user o dang String
+     * @return True neu lua chon la hop le, false neu khong hop le
+     */
     public boolean isSelectionValid(String selectionS) {
         if (selectionS.length() > 2) {
             throw new IllegalArgumentException("Chi nhap 1 so tu 0 den 10.");
@@ -112,6 +123,12 @@ public class OperationToProduct {
         return true;
     }
 
+    /**
+     * Ham chay lua chon 1: Load du lieu
+     * Ham se doc file, bo qua 2 dong dau, cat va trim cac doan String chua thong tin san pham
+     * Sau do kiem tra thong tin san pham
+     * Neu hop le, luu vao product, dua product vao Node, dua tung Node vao myList
+     */
     public void runSelectionLoadData() {
         try {
             // Doc file
@@ -146,6 +163,9 @@ public class OperationToProduct {
         System.out.println("Doc du lieu tu file hoan tat.");
     }
 
+    /**
+     *
+     */
     public void runSelectionInputAndAdd() {
         //input san pham
         String bCode;
