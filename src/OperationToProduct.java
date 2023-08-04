@@ -26,6 +26,13 @@ public class OperationToProduct {
     private MyStack myStack;
     private MyQueue myQueue;
 
+    /**
+     * Constructor of Operation to Product
+     * @param sc: Scanner
+     * @param myList: MyList
+     * @param myStack
+     * @param myQueue
+     */
     public OperationToProduct(Scanner sc, MyList myList, MyStack myStack, MyQueue myQueue) {
         this.sc = sc.useDelimiter("\n");
         this.myList = myList;
