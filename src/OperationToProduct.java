@@ -360,6 +360,12 @@ public class OperationToProduct {
         }
     }
 
+    /**
+     * Ham tim kiem san pham theo so bCode
+     * Kiem tra bCode co ton tai trong danh sach hay khong
+     * Neu ton tai, in san pham ra man hinh
+     * Neu khong ton tai, yeu cau nhap lai
+     */
     public void runSelectionSearchId() {
         String bCode = null;
         Node target = new Node();
@@ -376,12 +382,17 @@ public class OperationToProduct {
         } while (!isBCodeExisted(bCode));
     }
 
+    /**
+     * Ham xoa san pham dua theo so bCode
+     * Neu ton tai, hien thong tin san pham va xoa khoi danh sach
+     * Neu khong ton tai, yeu cau nhap lai
+     */
     public void runSelectionDeleteId() {
         String bCode = null;
         Node target = new Node();
         // Tim so bCode can xoa
         do {
-            System.out.println("Nhap so ID (bCode) can xoa: ");
+            System.out.println("Input the bcode to delete = ");
             bCode = sc.next();
             if (!isBCodeExisted(bCode)) {
                 System.out.println("So BCode khong ton tai. Yeu cau nhap lai.");
@@ -399,12 +410,19 @@ public class OperationToProduct {
         System.out.println("San pham can xoa: ");
         System.out.println(target.getInfo().toString());
         myList.delete(position);
-        System.out.println("Xoa thanh cong!");
+        System.out.println("Deleted!");
     }
 
+    /**
+     * Ham sort san pham theo bCode
+     * Loc bCode vao Array String va sort bang Insertion Sort theo yeu cau
+     * Tim cac Node san pham dua theo Array String, sau do tach cac Node ra khoi myList cu
+     * Dua cac Node vao 1 sortedList moi
+     * Bien sortedList nay thanh myList
+     */
     public void runSelectionSortId() {
         // Tao Array
-        System.out.println("Xep vat pham theo ID.");
+        System.out.println("Sort san pham theo ID.");
         String[] bcodeArr = new String[myList.length()];
         // Loc bCode dua vao Array String va sort
         for (int i = 0; i < myList.length(); i++) {
@@ -440,34 +458,44 @@ public class OperationToProduct {
                     }
                 }
             }
-//                if (Integer.parseInt(bcodeArr[j].substring(1, 3)) < Integer.parseInt(bcodeArr[j - 1].substring(1, 3))) {
-//                    String tem = bcodeArr[j];
-//                    bcodeArr[j] = bcodeArr[j - 1];
-//                    bcodeArr[j - 1] = tem;
-//                }
         }
 
         //Tao sorted List moi
         MyList sortedList = new MyList();
 
-        // Dua thong tin String vao sortedList
+        // Dua thong tin String vao sortedList de tim Node trong myList
         for (int i = 0; i < bcodeArr.length; i++) {
             Node result2 = myList.search(bcodeArr[i]);
-            // xoa result2 khoi myList de result2 thanh Node rieng biet
+            // xoa Node result khoi myList de result2 thanh Node rieng biet
             myList.deleteNode(result2);
             // Add Node result2 vao Sorted List
             sortedList.add(result2);
         }
         System.out.println("Sorted list hoan chinh: ");
         sortedList.printLL();
+        // bien myList thanh sortedList
         myList = sortedList;
     }
 
+    /**
+     * Ham doc so luong san pham theo he dem nhi phan
+     */
     public void runSelectionConvertBinary() {
-        System.out.println("So luong san pham trong list theo he dem de quy: " + Util.stringConvertVersion2(myList.length()));
+        System.out.println("So luong san pham: " + myList.length());
+        System.out.println("So luong san pham trong list theo he dem nhi phan: " + Util.stringConvertVersion2(myList.length()));
     }
 
 
+    /**
+     * Ham doc du lieu tu file va luu vao Stack
+     * Kiem tra file:
+     * Neu ton tai thi doc du lieu tu file
+     * Neu khong ton tai thi huy
+     * Sau khi doc du lieu, kiem tra dieu kien:
+     * Neu hop le, luu vao product, luu product vao Node va dua Node vao myStack
+     * Neu khong hop le, khong luu
+     * Khi hoan tat, hien ket qua ra man hinh
+     */
     public void runSelectionLoadStack() {
         System.out.println("Doc du lieu tu file data va luu vao Stack: ");
         try {
@@ -506,6 +534,16 @@ public class OperationToProduct {
 
     }
 
+    /**
+     * Ham doc du lieu tu file va luu vao Queue
+     * Kiem tra file:
+     * Neu ton tai thi doc du lieu tu file
+     * Neu khong ton tai thi huy
+     * Sau khi doc du lieu, kiem tra dieu kien:
+     * Neu hop le, luu vao product, luu product vao Node va dua Node vao myQueue
+     * Neu khong hop le, khong luu
+     * Khi hoan tat, hien ket qua ra man hinh
+     */
     public void runSelectionLoadQueue() {
         System.out.println("Doc du lieu tu file data va luu vao Queue: ");
         try {
@@ -543,6 +581,10 @@ public class OperationToProduct {
         myQueue.printLL();
     }
 
+    /**
+     * Ham in
+     */
+
     public void saveOutput() {
         try {
             //create a buffered reader that connects to the console to read lines
@@ -550,7 +592,7 @@ public class OperationToProduct {
             String lineFromInput = in.readLine();
 
             //create a print writer for writing to a file
-            PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
+            PrintStream out = new PrintStream(new FileOutputStream("console_output.txt"));
             System.setOut(out);
             //output to the file a line
             out.close();

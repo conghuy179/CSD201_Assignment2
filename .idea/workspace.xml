@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce91fa2d-0df2-4aa3-a8ec-0630d41ebb04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/console_output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AS2_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AS2_Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OperationToProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperationToProduct.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
