@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -28,8 +25,9 @@ public class OperationToProduct {
 
     /**
      * Constructor of Operation to Product
-     * @param sc: Scanner
-     * @param myList: MyList
+     *
+     * @param sc:      Scanner
+     * @param myList:  MyList
      * @param myStack:
      * @param myQueue
      */
@@ -62,6 +60,7 @@ public class OperationToProduct {
 
     /**
      * Ham chay chuong trinh
+     *
      * @throws IOException
      */
     public void run() throws IOException {
@@ -109,10 +108,12 @@ public class OperationToProduct {
                     break;
             }
         } while (selection != SELECTION_EXIT);
+        saveOutput();
     }
 
     /**
      * Ham kiem tra lua chon
+     *
      * @param selectionS Lua chon cua user o dang String
      * @return True neu lua chon la hop le, false neu khong hop le
      */
@@ -164,7 +165,10 @@ public class OperationToProduct {
     }
 
     /**
-     *
+     * Ham them du lieu
+     * Yeu cau user nhap thong tin san pham
+     * Neu thong tin hop le => Tao san pham moi va add vao Node
+     * add Node da tao vao myList => Thong bao nhap san pham thanh cong
      */
     public void runSelectionInputAndAdd() {
         //input san pham
@@ -229,20 +233,39 @@ public class OperationToProduct {
         Product newProduct = new Product(bCode, title, quantity, price);
         Node node = new Node(newProduct);
         myList.add(node);
+        System.out.println("San pham da duoc nhap thanh cong!");
     }
 
+    /**
+     * Ham kiem tra bCode co hop le hay khong
+     *
+     * @param bCode dang String
+     * @return: True neu bCode hop le, False neu khong hop le
+     */
     public boolean isBCodeValid(String bCode) {
-        if (bCode.charAt(0) != 'P') {
+        if (bCode == null) {
             return false;
         }
         return true;
     }
 
+    /**
+     * Ham kiem tra su ton tai cua bCode trong danh sach
+     *
+     * @param bCode dang String
+     * @return: True neu bCode co ton tai trong danh sach, False neu khong ton tai
+     */
     private boolean isBCodeExisted(String bCode) {
         Node result = myList.search(bCode);
         return result != null;
     }
 
+    /**
+     * Ham kiem tra gia tien san pham hop le hay khong
+     *
+     * @param priceS: Dang String
+     * @return: True neu gia tien hop le, false neu khong hop le
+     */
     private boolean isPriceValid(String priceS) {
         boolean result = false;
         if (Integer.parseInt(priceS) < 0) {
@@ -254,6 +277,12 @@ public class OperationToProduct {
         return result;
     }
 
+    /**
+     * Ham kiem tra gia tien san pham dang double hop le
+     *
+     * @param price dang double
+     * @return: True neu gia tien hop le, false neu khong hop le
+     */
     private boolean isPValid(double price) {
         boolean result = false;
         if (price > 0) {
@@ -262,6 +291,12 @@ public class OperationToProduct {
         return result;
     }
 
+    /**
+     * Ham kiem tra so luong san pham co hop le hay khong
+     *
+     * @param quantityS dang String
+     * @return: True neu so luong hop le, false neu khong hop le
+     */
     private boolean isQuantityValid(String quantityS) {
         boolean result = false;
         if (Integer.parseInt(quantityS) < 1) {
@@ -272,6 +307,12 @@ public class OperationToProduct {
         return result;
     }
 
+    /**
+     * Ham kiem tra so luong san pham dang integer co hop le hay khong
+     *
+     * @param quantity dang integer
+     * @return: True neu hop le, false neu khong hop le
+     */
     private boolean isQValid(int quantity) {
         boolean result = false;
         if (quantity > 1) {
@@ -280,20 +321,24 @@ public class OperationToProduct {
         return result;
     }
 
+    /**
+     * Ham hien thong tin danh sach san pham ra man hinh
+     */
     public void runSelectionDisplayData() {
         System.out.println("Thong tin san pham trong danh sach: ");
-        // Duyet tung phan tu
+        // Duyet tung phan tu va in thong tin san pham ra man hinh
         for (int i = 0; i < myList.length(); i++) {
             Node current = myList.getNode(i);
-            // Kiem tra bCode
-            String bCode = current.getInfo().getbcode();
-            if (isBCodeValid(bCode)) {
-                String info = current.getInfo().toString();
-                System.out.println("Info trong Node thu " + (i + 1) + " la: " + info);
-            }
+            String info = current.getInfo().toString();
+            System.out.println("Info trong Node thu " + (i + 1) + " la: " + info);
         }
     }
 
+    /**
+     * Ham luu danh sach san pham vao file
+     *
+     * @throws IOException
+     */
     public void runSelectionSaveProductList() throws IOException {
         try {
             FileWriter myfile = new FileWriter("data.txt");
@@ -308,7 +353,7 @@ public class OperationToProduct {
                 }
             }
             myfile.close();
-            System.out.println("Successfully wrote to the file.");
+            System.out.println("Successfully!");
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -374,13 +419,34 @@ public class OperationToProduct {
         //insertion sort
         for (int i = 2; i < bcodeArr.length; i++) {
             for (int j = i; j > 0; j--) {
-                if (Integer.parseInt(bcodeArr[j].substring(1, 3)) < Integer.parseInt(bcodeArr[j - 1].substring(1, 3))) {
-                    String tem = bcodeArr[j];
-                    bcodeArr[j] = bcodeArr[j - 1];
-                    bcodeArr[j - 1] = tem;
+                if (bcodeArr[j].charAt(0) == 'P' && bcodeArr[j - 1].charAt(0) == 'P') {
+                    if (Integer.parseInt(bcodeArr[j].substring(1, 3)) < Integer.parseInt(bcodeArr[j - 1].substring(1, 3))) {
+                        String tem = bcodeArr[j];
+                        bcodeArr[j] = bcodeArr[j - 1];
+                        bcodeArr[j - 1] = tem;
+                    }
+                } else if (bcodeArr[j].charAt(0) == 'P' && bcodeArr[j - 1].charAt(0) != 'P'
+                        || bcodeArr[j].charAt(0) != 'P' && bcodeArr[j - 1].charAt(0) == 'P') {
+                    if (bcodeArr[j].charAt(0) < bcodeArr[j - 1].charAt(0)) {
+                        String tem = bcodeArr[j];
+                        bcodeArr[j] = bcodeArr[j - 1];
+                        bcodeArr[j - 1] = tem;
+                    }
+                } else {
+                    if (Integer.parseInt(bcodeArr[j]) < Integer.parseInt(bcodeArr[j - 1])) {
+                        String tem = bcodeArr[j];
+                        bcodeArr[j] = bcodeArr[j - 1];
+                        bcodeArr[j - 1] = tem;
+                    }
                 }
             }
+//                if (Integer.parseInt(bcodeArr[j].substring(1, 3)) < Integer.parseInt(bcodeArr[j - 1].substring(1, 3))) {
+//                    String tem = bcodeArr[j];
+//                    bcodeArr[j] = bcodeArr[j - 1];
+//                    bcodeArr[j - 1] = tem;
+//                }
         }
+
         //Tao sorted List moi
         MyList sortedList = new MyList();
 
@@ -476,4 +542,21 @@ public class OperationToProduct {
         System.out.println("Thong tin trong Queue: ");
         myQueue.printLL();
     }
+
+    public void saveOutput() {
+        try {
+            //create a buffered reader that connects to the console to read lines
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            String lineFromInput = in.readLine();
+
+            //create a print writer for writing to a file
+            PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
+            System.setOut(out);
+            //output to the file a line
+            out.close();
+        } catch (IOException e1) {
+            System.out.println("Error during reading/writing. Please try again!");
+        }
+    }
+
 }
