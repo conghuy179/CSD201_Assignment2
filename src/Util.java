@@ -1,12 +1,10 @@
 public class Util {
-    public static String stringConvert(int n, String s) {
-        if (n == 1) {
-            return "1" + s;
-        } else {
-            return stringConvert(n/2, String.valueOf(n%2) + s);
-        }
-    }
 
+    /**
+     * Ham in ket qua theo he nhi phan
+     * @param n: Dang integer
+     * @return: Ket qua theo he nhi phan dang String
+     */
     public static String stringConvertVersion2(int n) {
         if ( n == 1) {
             return "1";
@@ -14,13 +12,5 @@ public class Util {
             return "0";
         }
         return stringConvertVersion2(n/2) + String.valueOf(n % 2);
-    }
-    public static String toBinary(int n) {
-        return stringConvert(n, "");
-    }
-
-    public static void main(String[] args) {
-        int n = 0;
-        System.out.println(stringConvertVersion2(n));
     }
 }

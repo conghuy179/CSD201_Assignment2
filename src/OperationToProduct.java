@@ -1,3 +1,4 @@
+import javax.imageio.stream.ImageInputStream;
 import java.io.*;
 import java.util.Scanner;
 
@@ -108,7 +109,6 @@ public class OperationToProduct {
                     break;
             }
         } while (selection != SELECTION_EXIT);
-        saveOutput();
     }
 
     /**
@@ -530,7 +530,7 @@ public class OperationToProduct {
         }
         System.out.println("Doc du lieu tu file hoan tat.");
         System.out.println("Thong tin trong stack: ");
-        myStack.printLL();
+        myStack.print();
 
     }
 
@@ -578,27 +578,26 @@ public class OperationToProduct {
         }
         System.out.println("Doc du lieu tu file hoan tat.");
         System.out.println("Thong tin trong Queue: ");
-        myQueue.printLL();
+        myQueue.print();
     }
 
     /**
-     * Ham in
+     * Ham xuat du lieu ra file
+     * luu output vao file console_output.txt
+     * @param output: Dang String
      */
 
-    public void saveOutput() {
+    public static void saveOutput(String output) {
         try {
-            //create a buffered reader that connects to the console to read lines
-            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            String lineFromInput = in.readLine();
-
             //create a print writer for writing to a file
-            PrintStream out = new PrintStream(new FileOutputStream("console_output.txt"));
-            System.setOut(out);
+            FileWriter fw = new FileWriter ("console_output.txt", true);
+            PrintWriter out = new PrintWriter(fw);
+            out.println(output);
+
             //output to the file a line
             out.close();
         } catch (IOException e1) {
             System.out.println("Error during reading/writing. Please try again!");
         }
     }
-
 }

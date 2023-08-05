@@ -4,23 +4,29 @@
 public class MyStack {
     private MyList stackedList;
 
+    /**
+     * Constructor cua stack
+     */
+
     public MyStack() {
         stackedList = new MyList();
     }
+
+    /**
+     * Ham push: dua node vao dau danh sach
+     * @param node: Node duoc dua vao
+     * Ham void
+     */
 
     public void push(Node node) {
         stackedList.prepend(node);
     }
 
-    public Node pop() {
-        return stackedList.takeFirst();
+    /**
+     * Ham in cac phan tu trong stack len man hinh
+     */
+    public void print() {
+        stackedList.printLL();
     }
 
-    public void printLL() {
-        Node current = stackedList.getNode(0);
-        while (current != null) {
-            System.out.print(current.getInfo() + " " + "\n");
-            current = current.getNext();
-        }
-    }
 }

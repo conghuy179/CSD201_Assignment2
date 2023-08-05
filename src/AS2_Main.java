@@ -1,10 +1,9 @@
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
  *  operate the system
+ *  Ham main de chay chuong trinh
  */
 public class AS2_Main {
     private static final Scanner sc = new Scanner(System.in);

@@ -6,9 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ce91fa2d-0df2-4aa3-a8ec-0630d41ebb04" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/console_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/console_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AS2_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AS2_Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OperationToProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperationToProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +61,7 @@
       <recent name="C:\Users\Admin\Documents\CODE\Java\Project\CSD201_AS2_huypc_fx16513\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AS2_Main">
+  <component name="RunManager" selected="Application.OperationToProduct">
     <configuration name="AS2_Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AS2_Main" />
       <module name="CSD201_AS2_huypc_fx16513" />
@@ -76,6 +83,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OperationToProduct" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OperationToProduct" />
+      <module name="CSD201_AS2_huypc_fx16513" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Util" />
       <module name="CSD201_AS2_huypc_fx16513" />
@@ -85,6 +99,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OperationToProduct" />
         <item itemvalue="Application.AS2_Main" />
         <item itemvalue="Application.MyList" />
         <item itemvalue="Application.Util" />

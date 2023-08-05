@@ -8,11 +8,20 @@ public class MyList {
     public MyList() {
     }
 
+    /**
+     * Constructor tao linked list
+     * @param head: Node dau tien trong day
+     * @param tail: Node cuoi cung trong day
+     */
     public MyList(Node head, Node tail) {
         this.head = head;
         this.tail = tail;
     }
 
+    /**
+     * Ham them node vao day
+     * @param a: Node duoc them vao day
+     */
     public void add(Node a) {
         if (head == null) {
             head = a;
@@ -27,13 +36,9 @@ public class MyList {
     }
 
     /**
-     * Checking if this list is empty
-     *
-     * @return true if list is empty
+     * Ham kiem tra do dai cua linked list
+     * @return tra ve do dai cua list dang integer
      */
-    public boolean isEmpty() {
-        return head == null;
-    }
 
     public int length() {
         int count = 0;
@@ -45,6 +50,11 @@ public class MyList {
         return count;
     }
 
+    /**
+     * Ham them Node vao vi tri dau tien cua day
+     * @param item: Node duoc them vao
+     * @return Node duoc them vao o vi tri dau tien
+     */
     public Node prepend(Node item) {
         Node newHead = item;
         newHead.setNext(head);
@@ -52,31 +62,21 @@ public class MyList {
         return newHead;
     }
 
+    /**
+     * Ham them vao vi tri cuoi day
+     * @param item: Node can them
+     * @return: Node da duoc them vao
+     */
     public Node append(Node item) {
         add(item);
         return tail;
     }
 
-
-    public Node insert(int position, Node item) {
-        if (position < 0 || position > length()) {
-            System.out.println("Nam ngoai day.");
-            return null;
-        }
-
-        Node bodyPart = item;
-        int x = 1;
-        Node current = head;
-        while (current.getNext() != null && x != position) {
-            x++;
-            current = current.getNext();
-        }
-        bodyPart.setNext(current.getNext());
-        current.setNext(bodyPart);
-
-        return bodyPart;
-    }
-
+    /**
+     * Ham tim kiem Node trong linked list
+     * @param bCode: String bCode cua san pham trong Node
+     * @return: Node dang can tim kiem
+     */
     public Node search(String bCode) {
         Node current = head;
         while (current != null) {
@@ -89,6 +89,11 @@ public class MyList {
         return current;
     }
 
+    /**
+     * Ham tim kiem Node dua theo so vi tri
+     * @param position: dang integer
+     * @return: Node dang can tim kiem
+     */
     public Node getNode(int position) {
         if (position < 0 || position > length()) {
             System.out.println("Nam ngoai day.");
@@ -104,6 +109,11 @@ public class MyList {
         return current;
     }
 
+    /**
+     * Ham xoa Node trong list
+     * @param a: Node can xoa
+     * Ham void
+     */
     public void deleteNode(Node a) {
        Node current = head;
        if (head == a) {
@@ -119,6 +129,10 @@ public class MyList {
        }
     }
 
+    /**
+     * Ham in thong tin cac phan tu trong linked list ra man hinhf
+     * Ham void
+     */
     public void printLL() {
         Node current = head;
         while (current != null) {
@@ -127,6 +141,10 @@ public class MyList {
         }
     }
 
+    /**
+     * Ham lay phan tu dau tien trong day
+     * @return Phan tu da lay
+     */
     public Node takeFirst() {
         if (head == null) {
             return null;
@@ -142,6 +160,10 @@ public class MyList {
         }
     }
 
+    /**
+     * Ham lay phan tu cuoi cung trong day
+     * @return phan tu da lay
+     */
     public Node takeLast() {
         if (head == null) {
             return null;
@@ -162,6 +184,10 @@ public class MyList {
         }
     }
 
+    /**
+     * Ham loai bo Node dau tien trong day
+     * Ham void
+     */
     public void removeFirstNode() {
         // Move the head pointer to the next node
         if (head != null) {
@@ -171,6 +197,11 @@ public class MyList {
         }
     }
 
+    /**
+     * Ham xoa Node dua theo vi tri
+     * @param position: dang integer
+     * Ham void
+     */
     public void delete(int position) {
         if (position < 0 || position > length()) {
             System.out.println("Nam ngoai day.");
@@ -188,38 +219,5 @@ public class MyList {
             current.setNext(a.getNext());
             a.setNext(null);
         }
-    }
-
-    public void swap(int first, int second) {
-        Node x = getNode(first);
-        Node y = getNode(second);
-
-        Node temp = y.getNext();
-        y.setNext(x);
-        x.setNext(temp);
-    }
-
-    public static void main(String[] args) {
-        MyList ml = new MyList();
-        Product a = new Product("P01", "banhgio", 2, 10000);
-        Product b = new Product("P02", "garan", 200, 30000);
-        Product c = new Product("P03", "Pizza", 2, 100000);
-        Product d = new Product("P04", "BanhBo", 3, 120000);
-        Product e = new Product("P05", "Friec", 4, 130000);
-        Node nB = new Node(b);
-        Node nD = new Node(d);
-        Node nA = new Node(a);
-        Node nC = new Node(c);
-        Node nE = new Node(e);
-        ml.add(nB);
-        ml.add(nD);
-        ml.add(nA);
-        ml.add(nC);
-        ml.add(nE);
-        ml.printLL();
-        System.out.println("Swap");
-        ml.swap(0, 1);
-//        ml.insertionSort(ml);
-        ml.printLL();
     }
 }
