@@ -1,4 +1,3 @@
-import javax.imageio.stream.ImageInputStream;
 import java.io.*;
 import java.util.Scanner;
 
@@ -29,8 +28,8 @@ public class OperationToProduct {
      *
      * @param sc:      Scanner
      * @param myList:  MyList
-     * @param myStack:
-     * @param myQueue
+     * @param myStack: Stack
+     * @param myQueue: Queue
      */
     public OperationToProduct(Scanner sc, MyList myList, MyStack myStack, MyQueue myQueue) {
         this.sc = sc.useDelimiter("\n");
@@ -581,23 +580,16 @@ public class OperationToProduct {
         myQueue.print();
     }
 
-    /**
-     * Ham xuat du lieu ra file
-     * luu output vao file console_output.txt
-     * @param output: Dang String
-     */
-
-    public static void saveOutput(String output) {
+    public void saveOutputToFile() throws IOException  {
         try {
-            //create a print writer for writing to a file
-            FileWriter fw = new FileWriter ("console_output.txt", true);
-            PrintWriter out = new PrintWriter(fw);
-            out.println(output);
-
-            //output to the file a line
-            out.close();
+            //create a for writing to a file
+            File fw = new File ("console_output.txt");
+            PrintStream stream = new PrintStream(fw);
+            System.setOut(stream);
         } catch (IOException e1) {
             System.out.println("Error during reading/writing. Please try again!");
         }
+
     }
+
 }
