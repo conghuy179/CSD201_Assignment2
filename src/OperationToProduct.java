@@ -22,6 +22,8 @@ public class OperationToProduct {
     private MyList myList;
     private MyStack myStack;
     private MyQueue myQueue;
+    private PrintStream outFilePS;
+    private PrintStream outConsolePS;
 
     /**
      * Constructor of Operation to Product
@@ -31,11 +33,13 @@ public class OperationToProduct {
      * @param myStack: Stack
      * @param myQueue: Queue
      */
-    public OperationToProduct(Scanner sc, MyList myList, MyStack myStack, MyQueue myQueue) {
+    public OperationToProduct(Scanner sc, MyList myList, MyStack myStack, MyQueue myQueue, PrintStream outFilePS, PrintStream outConsolePS) {
         this.sc = sc.useDelimiter("\n");
         this.myList = myList;
         this.myStack = myStack;
         this.myQueue = myQueue;
+        this.outFilePS = outFilePS;
+        this.outConsolePS = outConsolePS;
     }
 
     /**
