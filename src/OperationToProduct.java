@@ -46,20 +46,36 @@ public class OperationToProduct {
      * Menu hien thi ban dau
      */
     public void printMenu() {
-        System.out.println("Choose one of this options:");
-        System.out.println("Product list:");
-        System.out.println("1. Load data from file and display");
-        System.out.println("2. Input & add to the end.");
-        System.out.println("3. Display data");
-        System.out.println("4. Save product list to file.");
-        System.out.println("5. Search by ID");
-        System.out.println("6. Delete by ID");
-        System.out.println("7. Sort by ID.");
-        System.out.println("8. Convert to Binary");
-        System.out.println("9. Load to stack and display");
-        System.out.println("10. Load to queue and display.");
-        System.out.println("0. Exit");
-        System.out.println("Your selection: ");
+        outConsolePS.println("Choose one of this options:");
+        outConsolePS.println("Product list:");
+        outConsolePS.println("1. Load data from file and display");
+        outConsolePS.println("2. Input & add to the end.");
+        outConsolePS.println("3. Display data");
+        outConsolePS.println("4. Save product list to file.");
+        outConsolePS.println("5. Search by ID");
+        outConsolePS.println("6. Delete by ID");
+        outConsolePS.println("7. Sort by ID.");
+        outConsolePS.println("8. Convert to Binary");
+        outConsolePS.println("9. Load to stack and display");
+        outConsolePS.println("10. Load to queue and display.");
+        outConsolePS.println("0. Exit");
+        outConsolePS.println("Your selection: ");
+
+
+        outFilePS.println("Choose one of this options:");
+        outFilePS.println("Product list:");
+        outFilePS.println("1. Load data from file and display");
+        outFilePS.println("2. Input & add to the end.");
+        outFilePS.println("3. Display data");
+        outFilePS.println("4. Save product list to file.");
+        outFilePS.println("5. Search by ID");
+        outFilePS.println("6. Delete by ID");
+        outFilePS.println("7. Sort by ID.");
+        outFilePS.println("8. Convert to Binary");
+        outFilePS.println("9. Load to stack and display");
+        outFilePS.println("10. Load to queue and display.");
+        outFilePS.println("0. Exit");
+        outFilePS.println("Your selection: ");
     }
 
     /**
@@ -75,10 +91,12 @@ public class OperationToProduct {
                 selectionS = sc.next();
                 isSelectionValid(selectionS);
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                outConsolePS.println(e.getMessage());
+                outFilePS.println(e.getMessage());
                 continue;
             }
             selection = Integer.parseInt(selectionS);
+            outFilePS.println(selection);
             switch (selection) {
                 case SELECTION_LOAD_DATA:
                     runSelectionLoadData();
@@ -162,9 +180,11 @@ public class OperationToProduct {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Cannot find the file.");
+            outConsolePS.println("Cannot find the file.");
+            outFilePS.println("Cannot find the file.");
         }
-        System.out.println("Doc du lieu tu file hoan tat.");
+        outConsolePS.println("Doc du lieu tu file hoan tat.");
+        outFilePS.println("Doc du lieu tu file hoan tat.");
     }
 
     /**
@@ -180,55 +200,67 @@ public class OperationToProduct {
         int quantity = 0;
         double price = 0;
 
-        System.out.println("Nhap thong tin san pham muon them vao: ");
+        outConsolePS.println("Nhap thong tin san pham muon them vao: ");
+        outFilePS.println("Nhap thong tin san pham muon them vao: ");
         // Nhap va kiem tra dieu kien Id
         do {
-            System.out.println("Ma san pham: ");
+            outConsolePS.println("Ma san pham: ");
+            outFilePS.println("Ma san pham: ");
             bCode = sc.next();
             isBCodeValid(bCode);
             if (!isBCodeValid(bCode)) {
-                System.out.println("Ma san pham: P + so thu tu. Yeu cau nhap lai.");
+                outFilePS.println("Ma san pham: P + so thu tu. Yeu cau nhap lai.");
+                outConsolePS.println("Ma san pham: P + so thu tu. Yeu cau nhap lai.");
             }
             if (isBCodeExisted(bCode)) {
-                System.out.println("San pham da ton tai. Vui long thu lai.");
+                outFilePS.println("San pham da ton tai. Vui long thu lai.");
+                outConsolePS.println("San pham da ton tai. Vui long thu lai.");
             }
         } while (isBCodeExisted(bCode) && isBCodeValid(bCode));
 
-        System.out.println("Loai san pham: ");
+        outConsolePS.println("Loai san pham: ");
+        outFilePS.println("Loai san pham: ");
         title = sc.next();
 
         // Nhap va kiem tra dieu kien quantity
         do {
             String quantityS = null;
-            System.out.println("So luong san pham: ");
+            outConsolePS.println("So luong san pham: ");
+            outFilePS.println("So luong san pham: ");
             try {
                 quantityS = sc.next();
                 isQuantityValid(quantityS);
             } catch (IllegalArgumentException e) {
-                System.out.println("Yeu cau nhap lai. Li do: " + e.getMessage());
+                outConsolePS.println("Yeu cau nhap lai. Li do: " + e.getMessage());
+                outFilePS.println("Yeu cau nhap lai. Li do: " + e.getMessage());
                 continue;
             }
             quantity = Integer.parseInt(quantityS);
             if (!isQValid(quantity)) {
-                System.out.println("Nhap sai so luong. Yeu cau nhap lai.");
+                outConsolePS.println("Nhap sai so luong. Yeu cau nhap lai.");
+                outFilePS.println("Nhap sai so luong. Yeu cau nhap lai.");
             }
         } while (!isQValid(quantity));
 
         // Nhap va kiem tra dieu kien price
         do {
             String priceS = null;
-            System.out.println("Gia tien san pham: ");
+            outConsolePS.println("Gia tien san pham: ");
+            outFilePS.println("Gia tien san pham: ");
             try {
                 priceS = sc.next();
                 isPriceValid(priceS);
             } catch (IllegalArgumentException e) {
-                System.out.println(priceS);
-                System.out.println("Yeu cau nhap lai. Li do: " + e.getMessage());
+                outFilePS.println(priceS);
+                outConsolePS.println(priceS);
+                outFilePS.println("Yeu cau nhap lai. Li do: " + e.getMessage());
+                outConsolePS.println("Yeu cau nhap lai. Li do: " + e.getMessage());
                 continue;
             }
             price = Double.parseDouble(priceS);
             if (!isPValid(price)) {
-                System.out.println("Nhap sai gia san pham. Yeu cau nhap lai.");
+                outFilePS.println("Nhap sai gia san pham. Yeu cau nhap lai.");
+                outConsolePS.println("Nhap sai gia san pham. Yeu cau nhap lai.");
             }
         } while (!isPValid(price));
 
@@ -236,7 +268,8 @@ public class OperationToProduct {
         Product newProduct = new Product(bCode, title, quantity, price);
         Node node = new Node(newProduct);
         myList.add(node);
-        System.out.println("San pham da duoc nhap thanh cong!");
+        outFilePS.println("San pham da duoc nhap thanh cong!");
+        outConsolePS.println("San pham da duoc nhap thanh cong!");
     }
 
     /**
@@ -272,7 +305,8 @@ public class OperationToProduct {
     private boolean isPriceValid(String priceS) {
         boolean result = false;
         if (Integer.parseInt(priceS) < 0) {
-            System.out.println("Chi nhap so tien tren 0 dong");
+            outFilePS.println("Chi nhap so tien tren 0 dong");
+            outConsolePS.println("Chi nhap so tien tren 0 dong");
         } else {
             result = true;
         }
@@ -303,7 +337,8 @@ public class OperationToProduct {
     private boolean isQuantityValid(String quantityS) {
         boolean result = false;
         if (Integer.parseInt(quantityS) < 1) {
-            System.out.println("Chi nhap so luong san pham tren 1 chiec.");
+            outFilePS.println("Chi nhap so luong san pham tren 1 chiec.");
+            outConsolePS.println("Chi nhap so luong san pham tren 1 chiec.");
         } else {
             result = true;
         }
@@ -333,7 +368,8 @@ public class OperationToProduct {
         for (int i = 0; i < myList.length(); i++) {
             Node current = myList.getNode(i);
             String info = current.getInfo().toString();
-            System.out.println("Info trong Node thu " + (i + 1) + " la: " + info);
+            outFilePS.println("Info trong Node thu " + (i + 1) + " la: " + info);
+            outConsolePS.println("Info trong Node thu " + (i + 1) + " la: " + info);
         }
     }
 
@@ -356,9 +392,11 @@ public class OperationToProduct {
                 }
             }
             myfile.close();
-            System.out.println("Successfully!");
+            outFilePS.println("Successfully!");
+            outConsolePS.println("Successfully!");
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            outFilePS.println("An error occurred.");
+            outConsolePS.println("An error occurred.");
             e.printStackTrace();
         }
     }
@@ -373,14 +411,18 @@ public class OperationToProduct {
         String bCode = null;
         Node target = new Node();
         do {
-            System.out.println("Nhap so ID (bCode) can tim: ");
+            outFilePS.println("Nhap so ID (bCode) can tim: ");
+            outConsolePS.println("Nhap so ID (bCode) can tim: ");
             bCode = sc.next();
             if (!isBCodeExisted(bCode)) {
-                System.out.println("So BCode khong ton tai. Yeu cau nhap lai.");
+                outFilePS.println("So BCode khong ton tai. Yeu cau nhap lai.");
+                outConsolePS.println("So BCode khong ton tai. Yeu cau nhap lai.");
             } else {
                 target = myList.search(bCode);
-                System.out.println("San pham can tim: ");
-                System.out.println(target.getInfo().toString());
+                outFilePS.println("San pham can tim: ");
+                outConsolePS.println("San pham can tim: ");
+                outFilePS.println(target.getInfo().toString());
+                outConsolePS.println(target.getInfo().toString());
             }
         } while (!isBCodeExisted(bCode));
     }
@@ -395,10 +437,12 @@ public class OperationToProduct {
         Node target = new Node();
         // Tim so bCode can xoa
         do {
-            System.out.println("Input the bcode to delete = ");
+            outFilePS.println("Input the bcode to delete = ");
+            outConsolePS.println("Input the bcode to delete = ");
             bCode = sc.next();
             if (!isBCodeExisted(bCode)) {
-                System.out.println("So BCode khong ton tai. Yeu cau nhap lai.");
+                outFilePS.println("So BCode khong ton tai. Yeu cau nhap lai.");
+                outConsolePS.println("So BCode khong ton tai. Yeu cau nhap lai.");
             }
         } while (!isBCodeExisted(bCode));
 
@@ -410,10 +454,13 @@ public class OperationToProduct {
                 position = i;
             }
         }
-        System.out.println("San pham can xoa: ");
-        System.out.println(target.getInfo().toString());
+        outFilePS.println("San pham can xoa: ");
+        outConsolePS.println("San pham can xoa: ");
+        outFilePS.println(target.getInfo().toString());
+        outConsolePS.println(target.getInfo().toString());
         myList.delete(position);
-        System.out.println("Deleted!");
+        outFilePS.println("Deleted!");
+        outConsolePS.println("Deleted!");
     }
 
     /**
@@ -425,7 +472,8 @@ public class OperationToProduct {
      */
     public void runSelectionSortId() {
         // Tao Array
-        System.out.println("Sort san pham theo ID.");
+        outFilePS.println("Sort san pham theo ID.");
+        outConsolePS.println("Sort san pham theo ID.");
         String[] bcodeArr = new String[myList.length()];
         // Loc bCode dua vao Array String va sort
         for (int i = 0; i < myList.length(); i++) {
@@ -474,7 +522,8 @@ public class OperationToProduct {
             // Add Node result2 vao Sorted List
             sortedList.add(result2);
         }
-        System.out.println("Sorted list hoan chinh: ");
+        outFilePS.println("Sorted list hoan chinh: ");
+        outConsolePS.println("Sorted list hoan chinh: ");
         sortedList.printLL();
         // bien myList thanh sortedList
         myList = sortedList;
@@ -484,8 +533,10 @@ public class OperationToProduct {
      * Ham doc so luong san pham theo he dem nhi phan
      */
     public void runSelectionConvertBinary() {
-        System.out.println("So luong san pham: " + myList.length());
-        System.out.println("So luong san pham trong list theo he dem nhi phan: " + Util.stringConvertVersion2(myList.length()));
+        outFilePS.println("So luong san pham: " + myList.length());
+        outConsolePS.println("So luong san pham: " + myList.length());
+        outFilePS.println("So luong san pham trong list theo he dem nhi phan: " + Util.stringConvertVersion2(myList.length()));
+        outConsolePS.println("So luong san pham trong list theo he dem nhi phan: " + Util.stringConvertVersion2(myList.length()));
     }
 
 
@@ -500,7 +551,8 @@ public class OperationToProduct {
      * Khi hoan tat, hien ket qua ra man hinh
      */
     public void runSelectionLoadStack() {
-        System.out.println("Doc du lieu tu file data va luu vao Stack: ");
+        outFilePS.println("Doc du lieu tu file data va luu vao Stack: ");
+        outConsolePS.println("Doc du lieu tu file data va luu vao Stack: ");
         try {
             // Doc file
             File file = new File("data.txt");
@@ -529,12 +581,14 @@ public class OperationToProduct {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Cannot find the file.");
+            outFilePS.println("Cannot find the file.");
+            outConsolePS.println("Cannot find the file.");
         }
-        System.out.println("Doc du lieu tu file hoan tat.");
-        System.out.println("Thong tin trong stack: ");
+        outFilePS.println("Doc du lieu tu file hoan tat.");
+        outConsolePS.println("Doc du lieu tu file hoan tat.");
+        outFilePS.println("Thong tin trong stack: ");
+        outConsolePS.println("Thong tin trong stack: ");
         myStack.print();
-
     }
 
     /**
@@ -548,7 +602,8 @@ public class OperationToProduct {
      * Khi hoan tat, hien ket qua ra man hinh
      */
     public void runSelectionLoadQueue() {
-        System.out.println("Doc du lieu tu file data va luu vao Queue: ");
+        outFilePS.println("Doc du lieu tu file data va luu vao Queue: ");
+        outConsolePS.println("Doc du lieu tu file data va luu vao Queue: ");
         try {
             // Doc file
             File file = new File("data.txt");
@@ -577,23 +632,13 @@ public class OperationToProduct {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Cannot find the file.");
+            outConsolePS.println("Cannot find the file.");
+            outFilePS.println("Cannot find the file.");
         }
-        System.out.println("Doc du lieu tu file hoan tat.");
-        System.out.println("Thong tin trong Queue: ");
+        outConsolePS.println("Doc du lieu tu file hoan tat.");
+        outFilePS.println("Doc du lieu tu file hoan tat.");
+        outConsolePS.println("Thong tin trong Queue: ");
+        outFilePS.println("Thong tin trong Queue: ");
         myQueue.print();
     }
-
-    public void saveOutputToFile() throws IOException  {
-        try {
-            //create a for writing to a file
-            File fw = new File ("console_output.txt");
-            PrintStream stream = new PrintStream(fw);
-            System.setOut(stream);
-        } catch (IOException e1) {
-            System.out.println("Error during reading/writing. Please try again!");
-        }
-
-    }
-
 }

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce91fa2d-0df2-4aa3-a8ec-0630d41ebb04" name="Changes" comment="">
+    <list default="true" id="03593fc9-9196-435c-894b-790dd962c97b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/console_output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AS2_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AS2_Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OperationToProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperationToProduct.java" afterDir="false" />
     </list>
@@ -15,76 +14,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2RsA3mymNIymnMb1tftfsQoN5n6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/GitHub/CSD201_Assignment2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Admin\Documents\CODE\Java\Project\CSD201_AS2_huypc_fx16513" />
-      <recent name="C:\Users\Admin\Documents\CODE\Java\Project\CSD201_AS2_huypc_fx16513\src" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.AS2_Main">
+}]]></component>
+  <component name="RunManager">
     <configuration name="AS2_Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AS2_Main" />
-      <module name="CSD201_AS2_huypc_fx16513" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MyList" />
-      <module name="CSD201_AS2_huypc_fx16513" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MyQueue" />
-      <module name="CSD201_AS2_huypc_fx16513" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OperationToProduct" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OperationToProduct" />
-      <module name="CSD201_AS2_huypc_fx16513" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Util" />
       <module name="CSD201_AS2_huypc_fx16513" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,36 +33,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.AS2_Main" />
-        <item itemvalue="Application.OperationToProduct" />
-        <item itemvalue="Application.MyList" />
-        <item itemvalue="Application.Util" />
-        <item itemvalue="Application.MyQueue" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="ce91fa2d-0df2-4aa3-a8ec-0630d41ebb04" name="Changes" comment="" />
-      <created>1688028220738</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1688028220738</updated>
-    </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
