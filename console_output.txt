@@ -1,0 +1,78 @@
+Choose one of this options:
+Product list:
+1. Load data from file and display
+2. Input & add to the end.
+3. Display data
+4. Save product list to file.
+5. Search by ID
+6. Delete by ID
+7. Sort by ID.
+8. Convert to Binary
+9. Load to stack and display
+10. Load to queue and display.
+0. Exit
+Your selection: 
+1
+Doc du lieu tu file hoan tat.
+Choose one of this options:
+Product list:
+1. Load data from file and display
+2. Input & add to the end.
+3. Display data
+4. Save product list to file.
+5. Search by ID
+6. Delete by ID
+7. Sort by ID.
+8. Convert to Binary
+9. Load to stack and display
+10. Load to queue and display.
+0. Exit
+Your selection: 
+3
+Info trong Node thu 1 la: P03  |  Sugar   |   12   |   25.1   |   
+
+Info trong Node thu 2 la: P01  |  Miliket   |   10   |   5.2   |   
+
+Info trong Node thu 3 la: P02  |  Apple   |   5   |   4.3   |   
+
+Info trong Node thu 4 la: P05  |  Rose   |   7   |   15.4   |   
+
+Info trong Node thu 5 la: P07  |  Beer   |   11   |   12.2   |   
+
+Info trong Node thu 6 la: P04  |  Book   |   9   |   5.2   |   
+
+Info trong Node thu 7 la: 3  |  3   |   3   |   3.0   |   
+
+Info trong Node thu 8 la: 4  |  4   |   4   |   4.0   |   
+
+Choose one of this options:
+Product list:
+1. Load data from file and display
+2. Input & add to the end.
+3. Display data
+4. Save product list to file.
+5. Search by ID
+6. Delete by ID
+7. Sort by ID.
+8. Convert to Binary
+9. Load to stack and display
+10. Load to queue and display.
+0. Exit
+Your selection: 
+7
+Sort san pham theo ID.
+Sorted list hoan chinh: 
+Choose one of this options:
+Product list:
+1. Load data from file and display
+2. Input & add to the end.
+3. Display data
+4. Save product list to file.
+5. Search by ID
+6. Delete by ID
+7. Sort by ID.
+8. Convert to Binary
+9. Load to stack and display
+10. Load to queue and display.
+0. Exit
+Your selection: 

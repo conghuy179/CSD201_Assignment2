@@ -480,10 +480,26 @@ public class OperationToProduct {
             bcodeArr[i] = myList.getNode(i).getInfo().getbcode();
         }
         //swap
-        if (Integer.parseInt(bcodeArr[0].substring(1, 3)) > Integer.parseInt(bcodeArr[1].substring(1, 3))) {
-            String tem = bcodeArr[0];
-            bcodeArr[0] = bcodeArr[1];
-            bcodeArr[1] = tem;
+
+        if (bcodeArr[0].charAt(0) == 'P' && bcodeArr[1].charAt(0) == 'P') {
+            if (Integer.parseInt(bcodeArr[0].substring(1, 3)) < Integer.parseInt(bcodeArr[1].substring(1, 3))) {
+                String tem = bcodeArr[0];
+                bcodeArr[0] = bcodeArr[1];
+                bcodeArr[1] = tem;
+            }
+        } else if (bcodeArr[0].charAt(0) == 'P' && bcodeArr[1].charAt(0) != 'P'
+                || bcodeArr[0].charAt(0) != 'P' && bcodeArr[1].charAt(0) == 'P') {
+            if (bcodeArr[0].charAt(0) < bcodeArr[1].charAt(0)) {
+                String tem = bcodeArr[0];
+                bcodeArr[0] = bcodeArr[1];
+                bcodeArr[1] = tem;
+            }
+        } else {
+            if (Integer.parseInt(bcodeArr[0]) < Integer.parseInt(bcodeArr[1])) {
+                String tem = bcodeArr[0];
+                bcodeArr[0] = bcodeArr[1];
+                bcodeArr[1] = tem;
+            }
         }
         //insertion sort
         for (int i = 2; i < bcodeArr.length; i++) {
