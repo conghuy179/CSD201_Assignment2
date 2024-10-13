@@ -1,9 +1,9 @@
 public class Util {
 
     /**
-     * Ham in ket qua theo he nhi phan
-     * @param n: Dang integer
-     * @return: Ket qua theo he nhi phan dang String
+     * Function: Print result in Binary
+     * @param n: integer
+     * @return: Result in Binary, String
      */
     public static String stringConvertVersion2(int n) {
         if ( n == 1) {

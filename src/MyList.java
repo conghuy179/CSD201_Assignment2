@@ -9,9 +9,9 @@ public class MyList {
     }
 
     /**
-     * Constructor tao linked list
-     * @param head: Node dau tien trong day
-     * @param tail: Node cuoi cung trong day
+     * Constructor creates linked list
+     * @param head: First Node
+     * @param tail: Last Node
      */
     public MyList(Node head, Node tail) {
         this.head = head;
@@ -19,8 +19,8 @@ public class MyList {
     }
 
     /**
-     * Ham them node vao day
-     * @param a: Node duoc them vao day
+     * Function: adding node
+     * @param a: Node is added here
      */
     public void add(Node a) {
         if (head == null) {
@@ -36,8 +36,8 @@ public class MyList {
     }
 
     /**
-     * Ham kiem tra do dai cua linked list
-     * @return tra ve do dai cua list dang integer
+     * Function: Check the length of linked list
+     * @return the length of list in integer
      */
 
     public int length() {
@@ -51,9 +51,9 @@ public class MyList {
     }
 
     /**
-     * Ham them Node vao vi tri dau tien cua day
-     * @param item: Node duoc them vao
-     * @return Node duoc them vao o vi tri dau tien
+     * Function: Add node in first position
+     * @param item: Node need to be added
+     * @return Node is added in first position
      */
     public Node prepend(Node item) {
         Node newHead = item;
@@ -63,9 +63,9 @@ public class MyList {
     }
 
     /**
-     * Ham them vao vi tri cuoi day
-     * @param item: Node can them
-     * @return: Node da duoc them vao
+     * Function: Add node in last position
+     * @param item: Node need to be added
+     * @return: Node which is added
      */
     public Node append(Node item) {
         add(item);
@@ -73,9 +73,9 @@ public class MyList {
     }
 
     /**
-     * Ham tim kiem Node trong linked list
-     * @param bCode: String bCode cua san pham trong Node
-     * @return: Node dang can tim kiem
+     * Function: Search for Node in linked list
+     * @param bCode: String bCode of product in Node
+     * @return: Searching Node
      */
     public Node search(String bCode) {
         Node current = head;
@@ -90,13 +90,13 @@ public class MyList {
     }
 
     /**
-     * Ham tim kiem Node dua theo so vi tri
-     * @param position: dang integer
-     * @return: Node dang can tim kiem
+     * Function: Search Node according to position's number
+     * @param position: Integer
+     * @return: Searching Node
      */
     public Node getNode(int position) {
         if (position < 0 || position > length()) {
-            System.out.println("Nam ngoai day.");
+            System.out.println("Out of List.");
             return null;
         }
         int x = 0;
@@ -110,9 +110,9 @@ public class MyList {
     }
 
     /**
-     * Ham xoa Node trong list
-     * @param a: Node can xoa
-     * Ham void
+     * Function: Delete Node in list
+     * @param a: Node needed to delete
+     *  Void Function
      */
     public void deleteNode(Node a) {
        Node current = head;
@@ -130,8 +130,8 @@ public class MyList {
     }
 
     /**
-     * Ham in thong tin cac phan tu trong linked list ra man hinhf
-     * Ham void
+     * Function: Print information of elements  linked list
+     * Void function
      */
     public void printLL() {
         Node current = head;
@@ -142,8 +142,8 @@ public class MyList {
     }
 
     /**
-     * Ham lay phan tu dau tien trong day
-     * @return Phan tu da lay
+     * Function: Take the first element in list
+     * @return Taken element
      */
     public Node takeFirst() {
         if (head == null) {
@@ -161,8 +161,8 @@ public class MyList {
     }
 
     /**
-     * Ham lay phan tu cuoi cung trong day
-     * @return phan tu da lay
+     * Function:Take the last element in list
+     * @return Taken element
      */
     public Node takeLast() {
         if (head == null) {
@@ -185,8 +185,8 @@ public class MyList {
     }
 
     /**
-     * Ham loai bo Node dau tien trong day
-     * Ham void
+     * Function: Remove the first Node
+     * Void function
      */
     public void removeFirstNode() {
         // Move the head pointer to the next node
@@ -198,13 +198,13 @@ public class MyList {
     }
 
     /**
-     * Ham xoa Node dua theo vi tri
-     * @param position: dang integer
-     * Ham void
+     * Function: Delete Node based on desired position
+     * @param position: Integer
+     * Void function
      */
     public void delete(int position) {
         if (position < 0 || position > length()) {
-            System.out.println("Nam ngoai day.");
+            System.out.println("Out of List.");
         }
         int x = 0;
         Node current = head;

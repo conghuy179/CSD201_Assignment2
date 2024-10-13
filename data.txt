@@ -1,10 +1,10 @@
-ID |  Title   | Quantity | price
+ID |  Title   | Quantity | Price
 --------------------------------
-P03  |  Sugar      |   12    | 25.1
-P01  |  Miliket      |   10    | 5.2
-P02  |  Apple      |   5    | 4.3
-P05  |  Rose      |   7    | 15.4
-P07  |  Beer      |   11    | 12.2
-P04  |  Book      |   9    | 5.2
-3  |  3      |   3    | 3.0
-4  |  4      |   4    | 4.0
+03  |  Sugar      |   12    | 25.1
+01  |  Miliket      |   10    | 5.2
+02  |  Apple      |   5    | 4.3
+05  |  Rose      |   7    | 15.4
+07  |  Beer      |   11    | 12.2
+04  |  Book      |   9    | 5.2
+013  |  Teddy Bear  |   3    | 3.0
+024  |  Blue Berry Whole Pack      |   4    | 4.0

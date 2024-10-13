@@ -6,13 +6,13 @@ public class Node {
     private Node next;
 
     /**
-     * Constructor so 1 cua Node
+     * First Constructor of Node
      */
     public Node() {}
 
     /**
-     * Constructor so 2 cua day
-     * @param info: Thong tin san pham, dang product
+     * Second Constructor of the list
+     * @param info: Product's information, Product type
      */
     public Node(Product info) {
         this.info = info;
@@ -20,15 +20,15 @@ public class Node {
     }
 
     /**
-     * Ham lay thong tin san pham
-     * @return thong tin san pham dang Product
+     * Function: Get information of the Product
+     * @return Product's Information
      */
     public Product getInfo() {
         return info;
     }
 
     /**
-     * Ham get Node next
+     * Function: get Node next
      * @return: Node next
      */
     public Node getNext() {
@@ -36,16 +36,16 @@ public class Node {
     }
 
     /**
-     * Ham set Node next
-     * @param next: Dang node muon set
-     * Ham void
+     * Function: Set Node next
+     * @param next: Node that needed to be set
+     * Void Function
      */
     public void setNext(Node next) {
         this.next = next;
     }
 
     /**
-     * Ham chuyen doi info thanh String
+     * Function: Change info to String
      * @return: String
      */
     @Override

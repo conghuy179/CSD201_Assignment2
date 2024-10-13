@@ -8,11 +8,11 @@ public class Product {
     private double price;
 
     /**
-     * Constructor cua class Product
-     * @param bCode: ID cua san pham, dang String
-     * @param title: Loai san pham, dang String
-     * @param quantity: So luong san pham, dang integer
-     * @param price: Gia san pham, dang double
+     * Constructor of Product class
+     * @param bCode: product's ID, String
+     * @param title: product's type, String
+     * @param quantity: product's quantity, integer
+     * @param price: product's price, double
      */
     public Product(String bCode, String title, int quantity, double price) {
         this.bCode = bCode;
@@ -22,16 +22,16 @@ public class Product {
     }
 
     /**
-     * Ham get bCode
-     * @return: bCode dang String
+     * Function: get bCode
+     * @return: bCode String
      */
     public String getbcode () {
         return bCode;
     }
 
     /**
-     * Ham in thong tin san pham dang String
-     * @return: Thong tin san pham dang String
+     * Function: Print product's information in String
+     * @return: Product's information in String
      */
     @Override
     public String toString() {

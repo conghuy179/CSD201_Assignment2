@@ -29,21 +29,21 @@ Product list:
 0. Exit
 Your selection: 
 3
-Info trong Node thu 1 la: P03  |  Sugar   |   12   |   25.1   |   
+Info trong Node thu 1 la: 03  |  Sugar   |   12   |   25.1   |   
 
-Info trong Node thu 2 la: P01  |  Miliket   |   10   |   5.2   |   
+Info trong Node thu 2 la: 01  |  Miliket   |   10   |   5.2   |   
 
-Info trong Node thu 3 la: P02  |  Apple   |   5   |   4.3   |   
+Info trong Node thu 3 la: 02  |  Apple   |   5   |   4.3   |   
 
-Info trong Node thu 4 la: P05  |  Rose   |   7   |   15.4   |   
+Info trong Node thu 4 la: 05  |  Rose   |   7   |   15.4   |   
 
-Info trong Node thu 5 la: P07  |  Beer   |   11   |   12.2   |   
+Info trong Node thu 5 la: 07  |  Beer   |   11   |   12.2   |   
 
-Info trong Node thu 6 la: P04  |  Book   |   9   |   5.2   |   
+Info trong Node thu 6 la: 04  |  Book   |   9   |   5.2   |   
 
-Info trong Node thu 7 la: 3  |  3   |   3   |   3.0   |   
+Info trong Node thu 7 la: 013  |  Teddy Bear   |   3   |   3.0   |   
 
-Info trong Node thu 8 la: 4  |  4   |   4   |   4.0   |   
+Info trong Node thu 8 la: 024  |  Blue Berry Whole Pack   |   4   |   4.0   |   
 
 Choose one of this options:
 Product list:

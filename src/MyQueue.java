@@ -12,17 +12,17 @@ public class MyQueue {
     }
 
     /**
-     * Ham dua Node vao cuoi danh sach
-     * @param node: Dang node
-     * Ham void
+     * Function: Add node in the last position of the list
+     * @param node: Node
+     * Void function
      */
     public void enqueue(Node node) {
         queueLink.append(node);
     }
 
     /**
-     * Ham in cac phan tu trong queue link ra man hinh
-     * Ham void
+     * Function: Print elements in queue link on screen
+     * Void function
      */
     public void print() {
         queueLink.printLL();

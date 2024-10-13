@@ -43,7 +43,7 @@ public class OperationToProduct {
     }
 
     /**
-     * Menu hien thi ban dau
+     * Menu: First Menu
      */
     public void printMenu() {
         outConsolePS.println("Choose one of this options:");
@@ -79,7 +79,7 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham chay chuong trinh
+     * Function: Run program
      *
      * @throws IOException
      */
@@ -133,35 +133,35 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham kiem tra lua chon
+     * Function: Examine selection
      *
-     * @param selectionS Lua chon cua user o dang String
-     * @return True neu lua chon la hop le, false neu khong hop le
+     * @param selectionS User's Selection in String
+     * @return True if legit, false if not
      */
     public boolean isSelectionValid(String selectionS) {
         if (selectionS.length() > 2) {
-            throw new IllegalArgumentException("Chi nhap 1 so tu 0 den 10.");
+            throw new IllegalArgumentException("Only type number from 0 to 10.");
         }
         return true;
     }
 
     /**
-     * Ham chay lua chon 1: Load du lieu
-     * Ham se doc file, bo qua 2 dong dau, cat va trim cac doan String chua thong tin san pham
-     * Sau do kiem tra thong tin san pham
-     * Neu hop le, luu vao product, dua product vao Node, dua tung Node vao myList
+     * Function: Run first selection: Load Data
+     * Function will read file, ignore first 2 sentences, cut and trim the String containing product's information
+     * Then check the product's information
+     * If legit, save to product, bring product inside Node, bring Node in myList
      */
     public void runSelectionLoadData() {
         try {
-            // Doc file
+            // Read file
             File file = new File("data.txt");
 
             Scanner fileSc = new Scanner(file);
             fileSc.nextLine();
             fileSc.nextLine();
             while (fileSc.hasNextLine()) {
-                // Luu thong tin san pham vao linked list
-                // Cat va trim cac doan String chua thong tin san pham
+                // Save product's information in linked list
+                // Cut and trim the desired String contains product's information
 
                 String data = fileSc.nextLine();
                 String[] part = data.split("\\|");
@@ -169,13 +169,13 @@ public class OperationToProduct {
                 String title = part[1].trim();
                 int quantity = Integer.parseInt(part[2].trim());
                 double price = Double.parseDouble(part[3].trim());
-                // Kiem tra dieu kien tung thanh phan, neu hop le tat ca thi cho vao product
+                // Check conditions of each elements, if legit all then add to product
                 if (isBCodeValid(bCode)) {
-                    // Want: Dua thong tin product vao product
+                    // Want: Add product's information in Product
                     Product product = new Product(bCode, title, quantity, price);
-                    // Dua product vao Node
+                    // Add Product in Node
                     Node node = new Node(product);
-                    // Dua node vao myList
+                    // Add Node in myList
                     myList.add(node);
                 }
             }
@@ -183,100 +183,100 @@ public class OperationToProduct {
             outConsolePS.println("Cannot find the file.");
             outFilePS.println("Cannot find the file.");
         }
-        outConsolePS.println("Doc du lieu tu file hoan tat.");
-        outFilePS.println("Doc du lieu tu file hoan tat.");
+        outConsolePS.println("Reading data from file completed.");
+        outFilePS.println("Reading data from file completed.");
     }
 
     /**
-     * Ham them du lieu
-     * Yeu cau user nhap thong tin san pham
-     * Neu thong tin hop le => Tao san pham moi va add vao Node
-     * add Node da tao vao myList => Thong bao nhap san pham thanh cong
+     * Function: Add data
+     * Require user to input product's information
+     * If info is legit => Create new product and add to Node
+     * Add created Node in myList => Notice add new product successful
      */
     public void runSelectionInputAndAdd() {
-        //input san pham
+        //input product
         String bCode;
         String title;
         int quantity = 0;
         double price = 0;
 
-        outConsolePS.println("Nhap thong tin san pham muon them vao: ");
-        outFilePS.println("Nhap thong tin san pham muon them vao: ");
-        // Nhap va kiem tra dieu kien Id
+        outConsolePS.println("Input product's information: ");
+        outFilePS.println("Input product's information: ");
+        // Add and check ID's condition
         do {
-            outConsolePS.println("Ma san pham: ");
-            outFilePS.println("Ma san pham: ");
+            outConsolePS.println("bCode: ");
+            outFilePS.println("bCode: ");
             bCode = sc.next();
             isBCodeValid(bCode);
             if (!isBCodeValid(bCode)) {
-                outFilePS.println("Ma san pham: P + so thu tu. Yeu cau nhap lai.");
-                outConsolePS.println("Ma san pham: P + so thu tu. Yeu cau nhap lai.");
+                outFilePS.println("bCode: P + number. Please input again.");
+                outConsolePS.println("bCode: P + number. Please input again.");
             }
             if (isBCodeExisted(bCode)) {
-                outFilePS.println("San pham da ton tai. Vui long thu lai.");
-                outConsolePS.println("San pham da ton tai. Vui long thu lai.");
+                outFilePS.println("Product is existed in the list. Please try again.");
+                outConsolePS.println("Product is existed in the list. Please try again.");
             }
         } while (isBCodeExisted(bCode) && isBCodeValid(bCode));
 
-        outConsolePS.println("Loai san pham: ");
-        outFilePS.println("Loai san pham: ");
+        outConsolePS.println("Product type: ");
+        outFilePS.println("Product type: ");
         title = sc.next();
 
-        // Nhap va kiem tra dieu kien quantity
+        // Input and check quantity's condition
         do {
             String quantityS = null;
-            outConsolePS.println("So luong san pham: ");
-            outFilePS.println("So luong san pham: ");
+            outConsolePS.println("Product's quantity: ");
+            outFilePS.println("Product's quantity: ");
             try {
                 quantityS = sc.next();
                 isQuantityValid(quantityS);
             } catch (IllegalArgumentException e) {
-                outConsolePS.println("Yeu cau nhap lai. Li do: " + e.getMessage());
-                outFilePS.println("Yeu cau nhap lai. Li do: " + e.getMessage());
+                outConsolePS.println("Please input again. Reason: " + e.getMessage());
+                outFilePS.println("Please input again. Reason" + e.getMessage());
                 continue;
             }
             quantity = Integer.parseInt(quantityS);
             if (!isQValid(quantity)) {
-                outConsolePS.println("Nhap sai so luong. Yeu cau nhap lai.");
-                outFilePS.println("Nhap sai so luong. Yeu cau nhap lai.");
+                outConsolePS.println("Wrong quantity. Please input again.");
+                outFilePS.println("Wrong quantity. Please input again.");
             }
         } while (!isQValid(quantity));
 
-        // Nhap va kiem tra dieu kien price
+        // Input and check price's condition
         do {
             String priceS = null;
-            outConsolePS.println("Gia tien san pham: ");
-            outFilePS.println("Gia tien san pham: ");
+            outConsolePS.println("Product's price: ");
+            outFilePS.println("Product's price: ");
             try {
                 priceS = sc.next();
                 isPriceValid(priceS);
             } catch (IllegalArgumentException e) {
                 outFilePS.println(priceS);
                 outConsolePS.println(priceS);
-                outFilePS.println("Yeu cau nhap lai. Li do: " + e.getMessage());
-                outConsolePS.println("Yeu cau nhap lai. Li do: " + e.getMessage());
+                outFilePS.println("Please input again. Reason: " + e.getMessage());
+                outConsolePS.println("Please input again. Reason: " + e.getMessage());
                 continue;
             }
             price = Double.parseDouble(priceS);
             if (!isPValid(price)) {
-                outFilePS.println("Nhap sai gia san pham. Yeu cau nhap lai.");
-                outConsolePS.println("Nhap sai gia san pham. Yeu cau nhap lai.");
+                outFilePS.println("Wrong product's price. Please input again.");
+                outConsolePS.println("Wrong product's price. Please input again.");
             }
         } while (!isPValid(price));
 
-        // Thoa man tat ca dieu kien => Tao san pham va dua vao cuoi danh sach
+        // If satisfied all conditions => Create product and add to the end of the list
         Product newProduct = new Product(bCode, title, quantity, price);
         Node node = new Node(newProduct);
         myList.add(node);
-        outFilePS.println("San pham da duoc nhap thanh cong!");
-        outConsolePS.println("San pham da duoc nhap thanh cong!");
+        outFilePS.println("Product created successful!");
+        outConsolePS.println("Product created successful!");
     }
 
     /**
-     * Ham kiem tra bCode co hop le hay khong
+     * Function: Check if bCode is legit or not
      *
-     * @param bCode dang String
-     * @return: True neu bCode hop le, False neu khong hop le
+     * @param bCode String
+     * @return: True if bCode is legit, False if not
      */
     public boolean isBCodeValid(String bCode) {
         if (bCode == null) {
@@ -286,10 +286,10 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham kiem tra su ton tai cua bCode trong danh sach
+     * Function: Check if bCode is existed or not
      *
-     * @param bCode dang String
-     * @return: True neu bCode co ton tai trong danh sach, False neu khong ton tai
+     * @param bCode String
+     * @return: True if bCode existed in the list, False if not
      */
     private boolean isBCodeExisted(String bCode) {
         Node result = myList.search(bCode);
@@ -297,16 +297,16 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham kiem tra gia tien san pham hop le hay khong
+     * Function: Check if product's price is legit or not
      *
-     * @param priceS: Dang String
-     * @return: True neu gia tien hop le, false neu khong hop le
+     * @param priceS: String
+     * @return: True if price's legit, false if not
      */
     private boolean isPriceValid(String priceS) {
         boolean result = false;
         if (Integer.parseInt(priceS) < 0) {
-            outFilePS.println("Chi nhap so tien tren 0 dong");
-            outConsolePS.println("Chi nhap so tien tren 0 dong");
+            outFilePS.println("The amount needs to be more than 0d.");
+            outConsolePS.println("The amount needs to be more than 0d");
         } else {
             result = true;
         }
@@ -315,10 +315,10 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham kiem tra gia tien san pham dang double hop le
+     * Function: Check if product's price (Double type) is legit or not
      *
-     * @param price dang double
-     * @return: True neu gia tien hop le, false neu khong hop le
+     * @param price  double
+     * @return: True if product's price is legit, false if not
      */
     private boolean isPValid(double price) {
         boolean result = false;
@@ -329,16 +329,16 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham kiem tra so luong san pham co hop le hay khong
+     * Function: Check if product's quantity is legit or not
      *
-     * @param quantityS dang String
-     * @return: True neu so luong hop le, false neu khong hop le
+     * @param quantityS String
+     * @return: True if quantity is legit, false if not
      */
     private boolean isQuantityValid(String quantityS) {
         boolean result = false;
         if (Integer.parseInt(quantityS) < 1) {
-            outFilePS.println("Chi nhap so luong san pham tren 1 chiec.");
-            outConsolePS.println("Chi nhap so luong san pham tren 1 chiec.");
+            outFilePS.println("The quantity needs to be more than 1.");
+            outConsolePS.println("The quantity needs to be more than 1.");
         } else {
             result = true;
         }
@@ -346,10 +346,10 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham kiem tra so luong san pham dang integer co hop le hay khong
+     * Function: Check if quantity (integer type) is legit or not
      *
-     * @param quantity dang integer
-     * @return: True neu hop le, false neu khong hop le
+     * @param quantity integer
+     * @return: True if quantity is legit, false if not
      */
     private boolean isQValid(int quantity) {
         boolean result = false;
@@ -360,21 +360,21 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham hien thong tin danh sach san pham ra man hinh
+     * Function: Print product's information on the screen
      */
     public void runSelectionDisplayData() {
-        System.out.println("Thong tin san pham trong danh sach: ");
-        // Duyet tung phan tu va in thong tin san pham ra man hinh
+        System.out.println("Product's information in the list: ");
+        // Check each element and print product's information on the screen
         for (int i = 0; i < myList.length(); i++) {
             Node current = myList.getNode(i);
             String info = current.getInfo().toString();
-            outFilePS.println("Info trong Node thu " + (i + 1) + " la: " + info);
-            outConsolePS.println("Info trong Node thu " + (i + 1) + " la: " + info);
+            outFilePS.println("Info in Node number " + (i + 1) + " is: " + info);
+            outConsolePS.println("Info in Node number " + (i + 1) + " is: " + info);
         }
     }
 
     /**
-     * Ham luu danh sach san pham vao file
+     * Function: Save the product list in File
      *
      * @throws IOException
      */
@@ -385,7 +385,7 @@ public class OperationToProduct {
                     "--------------------------------\n");
             for (int i = 0; i < myList.length(); i++) {
                 Node current = myList.getNode(i);
-                // Kiem tra bCode
+                // Examine bCode
                 String bCode = current.getInfo().getbcode();
                 if (isBCodeValid(bCode)) {
                     myfile.write(myList.getNode(i).toString());
@@ -402,25 +402,25 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham tim kiem san pham theo so bCode
-     * Kiem tra bCode co ton tai trong danh sach hay khong
-     * Neu ton tai, in san pham ra man hinh
-     * Neu khong ton tai, yeu cau nhap lai
+     * Function: Search product according to bCode
+     * Check if bCode is existed in the list or not
+     * If yes, print it out on the screen
+     * If not, request to input again
      */
     public void runSelectionSearchId() {
         String bCode = null;
         Node target = new Node();
         do {
-            outFilePS.println("Nhap so ID (bCode) can tim: ");
-            outConsolePS.println("Nhap so ID (bCode) can tim: ");
+            outFilePS.println("Input desired ID number (bCode): ");
+            outConsolePS.println("Input desired Id number (bCode): ");
             bCode = sc.next();
             if (!isBCodeExisted(bCode)) {
-                outFilePS.println("So BCode khong ton tai. Yeu cau nhap lai.");
-                outConsolePS.println("So BCode khong ton tai. Yeu cau nhap lai.");
+                outFilePS.println("This BCode is not existed. Please input again.");
+                outConsolePS.println("This BCode is not existed. Please input again.");
             } else {
                 target = myList.search(bCode);
-                outFilePS.println("San pham can tim: ");
-                outConsolePS.println("San pham can tim: ");
+                outFilePS.println("The product you are looking for: ");
+                outConsolePS.println("The product you are looking for: ");
                 outFilePS.println(target.getInfo().toString());
                 outConsolePS.println(target.getInfo().toString());
             }
@@ -428,25 +428,25 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham xoa san pham dua theo so bCode
-     * Neu ton tai, hien thong tin san pham va xoa khoi danh sach
-     * Neu khong ton tai, yeu cau nhap lai
+     * Function: Delete product according to bCode
+     * If product existed, show product's information and delete from the list
+     * If not, request to input again
      */
     public void runSelectionDeleteId() {
         String bCode = null;
         Node target = new Node();
-        // Tim so bCode can xoa
+        // Find bCode of product that needed to be deleted
         do {
-            outFilePS.println("Input the bcode to delete = ");
-            outConsolePS.println("Input the bcode to delete = ");
+            outFilePS.println("Input the bCode to delete = ");
+            outConsolePS.println("Input the bCode to delete = ");
             bCode = sc.next();
             if (!isBCodeExisted(bCode)) {
-                outFilePS.println("So BCode khong ton tai. Yeu cau nhap lai.");
-                outConsolePS.println("So BCode khong ton tai. Yeu cau nhap lai.");
+                outFilePS.println("BCode is not existed. Please input again.");
+                outConsolePS.println("BCode is not existed. Please input again.");
             }
         } while (!isBCodeExisted(bCode));
 
-        // Tim position cua Product trong linked list de xoa
+        // Find the position of Product in linked List to delete
         target = myList.search(bCode);
         int position = -1;
         for (int i = 0; i < myList.length(); i++) {
@@ -454,8 +454,8 @@ public class OperationToProduct {
                 position = i;
             }
         }
-        outFilePS.println("San pham can xoa: ");
-        outConsolePS.println("San pham can xoa: ");
+        outFilePS.println("Product needed to be deleted: ");
+        outConsolePS.println("Product needed to be deleted: ");
         outFilePS.println(target.getInfo().toString());
         outConsolePS.println(target.getInfo().toString());
         myList.delete(position);
@@ -464,18 +464,18 @@ public class OperationToProduct {
     }
 
     /**
-     * Ham sort san pham theo bCode
-     * Loc bCode vao Array String va sort bang Insertion Sort theo yeu cau
-     * Tim cac Node san pham dua theo Array String, sau do tach cac Node ra khoi myList cu
-     * Dua cac Node vao 1 sortedList moi
-     * Bien sortedList nay thanh myList
+     * Function: Sort product according to bCode
+     * Sort bCode in Array String and use Insertion Sort
+     * Find product's Node according to Array String -> Separate Node from old myList
+     * Bring Node in new sortedList
+     * Change sortedList to myList
      */
     public void runSelectionSortId() {
-        // Tao Array
-        outFilePS.println("Sort san pham theo ID.");
-        outConsolePS.println("Sort san pham theo ID.");
+        outFilePS.println("Sort product according to ID.");
+        outConsolePS.println("Sort product according to ID.");
+        // Create Array
         String[] bcodeArr = new String[myList.length()];
-        // Loc bCode dua vao Array String va sort
+        // Bring bCode in Array String and sort
         for (int i = 0; i < myList.length(); i++) {
             bcodeArr[i] = myList.getNode(i).getInfo().getbcode();
         }
@@ -527,58 +527,58 @@ public class OperationToProduct {
             }
         }
 
-        //Tao sorted List moi
+        //Create new sorted List
         MyList sortedList = new MyList();
 
-        // Dua thong tin String vao sortedList de tim Node trong myList
+        // Bring String information in sortedList to find Node in myList
         for (int i = 0; i < bcodeArr.length; i++) {
             Node result2 = myList.search(bcodeArr[i]);
-            // xoa Node result khoi myList de result2 thanh Node rieng biet
+            //Delete Node result from myList for result2 becoming separate Node
             myList.deleteNode(result2);
-            // Add Node result2 vao Sorted List
+            // Add Node result2 into Sorted List
             sortedList.add(result2);
         }
-        outFilePS.println("Sorted list hoan chinh: ");
-        outConsolePS.println("Sorted list hoan chinh: ");
+        outFilePS.println("Completed Sorted list: ");
+        outConsolePS.println("Completed Sorted list: ");
         sortedList.printLL();
-        // bien myList thanh sortedList
+        // Turn myList to sortedList
         myList = sortedList;
     }
 
     /**
-     * Ham doc so luong san pham theo he dem nhi phan
+     * Function: Convert the quantity to Binary
      */
     public void runSelectionConvertBinary() {
-        outFilePS.println("So luong san pham: " + myList.length());
-        outConsolePS.println("So luong san pham: " + myList.length());
-        outFilePS.println("So luong san pham trong list theo he dem nhi phan: " + Util.stringConvertVersion2(myList.length()));
-        outConsolePS.println("So luong san pham trong list theo he dem nhi phan: " + Util.stringConvertVersion2(myList.length()));
+        outFilePS.println("Product's quantity: " + myList.length());
+        outConsolePS.println("Product's quantity: " + myList.length());
+        outFilePS.println("Product's quantity in Binary: " + Util.stringConvertVersion2(myList.length()));
+        outConsolePS.println("Product's quantity in Binary: " + Util.stringConvertVersion2(myList.length()));
     }
 
 
     /**
-     * Ham doc du lieu tu file va luu vao Stack
-     * Kiem tra file:
-     * Neu ton tai thi doc du lieu tu file
-     * Neu khong ton tai thi huy
-     * Sau khi doc du lieu, kiem tra dieu kien:
-     * Neu hop le, luu vao product, luu product vao Node va dua Node vao myStack
-     * Neu khong hop le, khong luu
-     * Khi hoan tat, hien ket qua ra man hinh
+     * Function: Read data from file and save in Stack
+     * Examine file:
+     * If existed, read data from file
+     * If not, cancel
+     * After finished reading, check condition:
+     * If legit, save to Product, save Product in Node, save Node in myStack
+     * If not, do not save
+     * After finished, print results on the screen
      */
     public void runSelectionLoadStack() {
-        outFilePS.println("Doc du lieu tu file data va luu vao Stack: ");
-        outConsolePS.println("Doc du lieu tu file data va luu vao Stack: ");
+        outFilePS.println("Read data from file and save to Stack: ");
+        outConsolePS.println("Read data from file and save to Stack: ");
         try {
-            // Doc file
+            // Read file
             File file = new File("data.txt");
 
             Scanner fileSc = new Scanner(file);
             fileSc.nextLine();
             fileSc.nextLine();
             while (fileSc.hasNextLine()) {
-                // Luu thong tin san pham vao Stack list
-                // Cat va trim cac doan String chua thong tin san pham
+                // Save product's information in Stack List
+                // Cut and trim desired String contains product's information
 
                 String data = fileSc.nextLine();
                 String[] part = data.split("\\|");
@@ -586,13 +586,13 @@ public class OperationToProduct {
                 String title = part[1].trim();
                 int quantity = Integer.parseInt(part[2].trim());
                 double price = Double.parseDouble(part[3].trim());
-                // Kiem tra dieu kien tung thanh phan, neu hop le tat ca thi cho vao product
+                // Examine element's condition, if all are legit -> save in product
                 if (isBCodeValid(bCode)) {
-                    // Want: Dua thong tin product vao product
+                    // Want: Put product's information in Product
                     Product product = new Product(bCode, title, quantity, price);
-                    // Dua product vao Node
+                    // Put product in Node
                     Node node = new Node(product);
-                    // Dua node vao stacked List
+                    // Put Node in stacked List
                     myStack.push(node);
                 }
             }
@@ -600,36 +600,36 @@ public class OperationToProduct {
             outFilePS.println("Cannot find the file.");
             outConsolePS.println("Cannot find the file.");
         }
-        outFilePS.println("Doc du lieu tu file hoan tat.");
-        outConsolePS.println("Doc du lieu tu file hoan tat.");
-        outFilePS.println("Thong tin trong stack: ");
-        outConsolePS.println("Thong tin trong stack: ");
+        outFilePS.println("Read data from file completed.");
+        outConsolePS.println("Read data from file completed.");
+        outFilePS.println("Information in Stack: ");
+        outConsolePS.println("Information in stack: ");
         myStack.print();
     }
 
     /**
-     * Ham doc du lieu tu file va luu vao Queue
-     * Kiem tra file:
-     * Neu ton tai thi doc du lieu tu file
-     * Neu khong ton tai thi huy
-     * Sau khi doc du lieu, kiem tra dieu kien:
-     * Neu hop le, luu vao product, luu product vao Node va dua Node vao myQueue
-     * Neu khong hop le, khong luu
-     * Khi hoan tat, hien ket qua ra man hinh
+     * Function: Read data from File and save in Queue
+     * Examine file:
+     * If File existed, read data from File
+     * If not, cancel
+     * After finished reading data, check condition:
+     * If legit, save in product, save product in Node, save Node in myQueue
+     * If not, do not save
+     * After finished, print results on the screen
      */
     public void runSelectionLoadQueue() {
-        outFilePS.println("Doc du lieu tu file data va luu vao Queue: ");
-        outConsolePS.println("Doc du lieu tu file data va luu vao Queue: ");
+        outFilePS.println("Read data from File and save in Queue: ");
+        outConsolePS.println("Read data from File and save in Queue: ");
         try {
-            // Doc file
+            // Read file
             File file = new File("data.txt");
 
             Scanner fileSc = new Scanner(file);
             fileSc.nextLine();
             fileSc.nextLine();
             while (fileSc.hasNextLine()) {
-                // Luu thong tin san pham vao Stack list
-                // Cat va trim cac doan String chua thong tin san pham
+                // Save product's information in Stack list
+                // Cut and trim desired String contains product's information
 
                 String data = fileSc.nextLine();
                 String[] part = data.split("\\|");
@@ -637,13 +637,13 @@ public class OperationToProduct {
                 String title = part[1].trim();
                 int quantity = Integer.parseInt(part[2].trim());
                 double price = Double.parseDouble(part[3].trim());
-                // Kiem tra dieu kien tung thanh phan, neu hop le tat ca thi cho vao product
+                // Examine condition of each element, if all are legit => save in product
                 if (isBCodeValid(bCode)) {
-                    // Want: Dua thong tin product vao product
+                    // Want: Put product's information in product
                     Product product = new Product(bCode, title, quantity, price);
-                    // Dua product vao Node
+                    // Put product in Node
                     Node node = new Node(product);
-                    // Dua node vao stacked List
+                    // Put node in stacked List
                     myQueue.enqueue(node);
                 }
             }
@@ -651,10 +651,10 @@ public class OperationToProduct {
             outConsolePS.println("Cannot find the file.");
             outFilePS.println("Cannot find the file.");
         }
-        outConsolePS.println("Doc du lieu tu file hoan tat.");
-        outFilePS.println("Doc du lieu tu file hoan tat.");
-        outConsolePS.println("Thong tin trong Queue: ");
-        outFilePS.println("Thong tin trong Queue: ");
+        outConsolePS.println("Read data from file completed.");
+        outFilePS.println("Read data from file completed.");
+        outConsolePS.println("Information in Queue: ");
+        outFilePS.println("Information in Queue: ");
         myQueue.print();
     }
 }

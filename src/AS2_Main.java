@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  *  operate the system
- *  Ham main de chay chuong trinh
+ *  Main to run the program
  */
 public class AS2_Main {
     private static final Scanner sc = new Scanner(System.in);
@@ -14,7 +14,7 @@ public class AS2_Main {
     private static MyStack ms = new MyStack();
     private static MyQueue mq = new MyQueue();
     public static void main(String[] args) throws IOException {
-        //luu output ra file
+        //save output to file
         File fw = new File("console_output.txt");
         PrintStream filePS = new PrintStream(fw);
 

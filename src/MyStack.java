@@ -13,9 +13,9 @@ public class MyStack {
     }
 
     /**
-     * Ham push: dua node vao dau danh sach
-     * @param node: Node duoc dua vao
-     * Ham void
+     * Function: Push Node in the list
+     * @param node: Node needed to be added
+     * Void function
      */
 
     public void push(Node node) {
@@ -23,7 +23,7 @@ public class MyStack {
     }
 
     /**
-     * Ham in cac phan tu trong stack len man hinh
+     * Function: Print elements on screen
      */
     public void print() {
         stackedList.printLL();
